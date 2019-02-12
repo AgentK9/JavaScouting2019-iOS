@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18A391" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Competition" representedClassName="Competition" syncable="YES" codeGenerationType="class">
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="region" attributeType="String" syncable="YES"/>
+        <relationship name="teams" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Team" inverseName="competition" inverseEntity="Team" syncable="YES"/>
+    </entity>
+    <entity name="ScoutData" representedClassName="ScoutData" syncable="YES" codeGenerationType="class">
+        <attribute name="claim" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="competition" attributeType="String" syncable="YES"/>
+        <attribute name="depotMin" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="finalScore" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="hangPark" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="land" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="landerMin" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="matchNum" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="park" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="sample" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="teamNum" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="team" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Team" inverseName="scoutData" inverseEntity="Team" syncable="YES"/>
+    </entity>
+    <entity name="Team" representedClassName="Team" syncable="YES" codeGenerationType="class">
+        <attribute name="home" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="number" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="record" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rookYear" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="competition" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Competition" inverseName="teams" inverseEntity="Competition" syncable="YES"/>
+        <relationship name="scoutData" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="ScoutData" inverseName="team" inverseEntity="ScoutData" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Competition" positionX="-36" positionY="81" width="128" height="90"/>
+        <element name="ScoutData" positionX="-63" positionY="-18" width="128" height="225"/>
+        <element name="Team" positionX="-54" positionY="72" width="128" height="150"/>
+    </elements>
+</model>
