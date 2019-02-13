@@ -14,6 +14,8 @@
 		0A033BF522126FCF00C27068 /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A033BF422126FCF00C27068 /* Match.swift */; };
 		0A033BF72212709C00C27068 /* ScoutingTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A033BF62212709C00C27068 /* ScoutingTeam.swift */; };
 		0A033BF92212711F00C27068 /* ScoutingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A033BF82212711F00C27068 /* ScoutingData.swift */; };
+		0A033C0122138FD600C27068 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A033BFF22138FD600C27068 /* LoginViewController.swift */; };
+		0A033C0222138FD600C27068 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A033C0022138FD600C27068 /* LoginViewController.xib */; };
 		0A8AA2F8220008BA00E24F01 /* InitScoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8AA2F6220008BA00E24F01 /* InitScoutViewController.swift */; };
 		0A8AA2F9220008BA00E24F01 /* InitScoutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A8AA2F7220008BA00E24F01 /* InitScoutViewController.xib */; };
 		0A8AA2FC220008C900E24F01 /* ScoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8AA2FA220008C900E24F01 /* ScoutViewController.swift */; };
@@ -37,6 +39,8 @@
 		0A033BF422126FCF00C27068 /* Match.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
 		0A033BF62212709C00C27068 /* ScoutingTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoutingTeam.swift; sourceTree = "<group>"; };
 		0A033BF82212711F00C27068 /* ScoutingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoutingData.swift; sourceTree = "<group>"; };
+		0A033BFF22138FD600C27068 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		0A033C0022138FD600C27068 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		0A8AA2F6220008BA00E24F01 /* InitScoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitScoutViewController.swift; sourceTree = "<group>"; };
 		0A8AA2F7220008BA00E24F01 /* InitScoutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InitScoutViewController.xib; sourceTree = "<group>"; };
 		0A8AA2FA220008C900E24F01 /* ScoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoutViewController.swift; sourceTree = "<group>"; };
@@ -129,6 +133,15 @@
 			path = ScoutingData;
 			sourceTree = "<group>";
 		};
+		0A033BFA22138F5600C27068 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				0A033BFF22138FD600C27068 /* LoginViewController.swift */,
+				0A033C0022138FD600C27068 /* LoginViewController.xib */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
 		0A8AA2F52200089100E24F01 /* Teams */ = {
 			isa = PBXGroup;
 			children = (
@@ -165,6 +178,7 @@
 		0AEC5C1F21F54F71006CEE45 /* JavaScouting2019 */ = {
 			isa = PBXGroup;
 			children = (
+				0A033BFA22138F5600C27068 /* Onboarding */,
 				0A033BE622126D9200C27068 /* DataStructure */,
 				0AEC5C2021F54F71006CEE45 /* AppDelegate.swift */,
 				0A8AA2F52200089100E24F01 /* Teams */,
@@ -254,6 +268,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A033C0222138FD600C27068 /* LoginViewController.xib in Resources */,
 				0AEC5C2D21F54F73006CEE45 /* LaunchScreen.storyboard in Resources */,
 				0AEC5C2A21F54F73006CEE45 /* Assets.xcassets in Resources */,
 				0A8AA2FD220008C900E24F01 /* ScoutViewController.xib in Resources */,
@@ -355,6 +370,7 @@
 				0A8AA2FC220008C900E24F01 /* ScoutViewController.swift in Sources */,
 				0AEC5C2321F54F71006CEE45 /* TeamsViewController.swift in Sources */,
 				0A8AA2F8220008BA00E24F01 /* InitScoutViewController.swift in Sources */,
+				0A033C0122138FD600C27068 /* LoginViewController.swift in Sources */,
 				0A033BF122126F3500C27068 /* Competition.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
