@@ -630,10 +630,10 @@
             </objects>
             <point key="canvasLocation" x="-2223" y="0.0"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Competition View Controller-->
         <scene sceneID="TAV-9n-vXe">
             <objects>
-                <viewController id="U41-wV-ckv" sceneMemberID="viewController">
+                <viewController id="U41-wV-ckv" customClass="AddCompetitionViewController" customModule="JavaScouting2019" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cQ7-O0-ko2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -660,17 +660,26 @@
                                     <segue destination="49e-Tb-3d3" kind="showDetail" id="7ez-AI-K2j"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Competition ID" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NzO-vN-9dG">
+                                <rect key="frame" x="95" y="256" width="184" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="3V2-67-sU9" firstAttribute="centerX" secondItem="ibh-Hy-gdC" secondAttribute="centerX" id="3Rt-Xx-sOs"/>
                             <constraint firstItem="5Vh-d4-g5o" firstAttribute="centerX" secondItem="ibh-Hy-gdC" secondAttribute="centerX" id="4hF-rt-rh1"/>
                             <constraint firstItem="C1E-l1-yfy" firstAttribute="top" secondItem="ibh-Hy-gdC" secondAttribute="top" constant="150" id="5pe-RT-fLH"/>
+                            <constraint firstItem="NzO-vN-9dG" firstAttribute="top" secondItem="C1E-l1-yfy" secondAttribute="bottom" constant="56" id="MNP-wf-tRq"/>
                             <constraint firstItem="C1E-l1-yfy" firstAttribute="centerX" secondItem="ibh-Hy-gdC" secondAttribute="centerX" id="WGd-7n-yuZ"/>
+                            <constraint firstItem="NzO-vN-9dG" firstAttribute="leading" secondItem="ibh-Hy-gdC" secondAttribute="leading" constant="95" id="WIc-Y8-gJc"/>
                             <constraint firstItem="5Vh-d4-g5o" firstAttribute="leading" secondItem="ibh-Hy-gdC" secondAttribute="leading" constant="100" id="a0D-JQ-OXS"/>
                             <constraint firstItem="3V2-67-sU9" firstAttribute="leading" secondItem="ibh-Hy-gdC" secondAttribute="leading" id="m3V-kU-GVR"/>
                             <constraint firstItem="5Vh-d4-g5o" firstAttribute="top" secondItem="ibh-Hy-gdC" secondAttribute="top" constant="400" id="pej-lD-i2O"/>
                             <constraint firstItem="3V2-67-sU9" firstAttribute="top" secondItem="ibh-Hy-gdC" secondAttribute="top" id="pvO-5Q-Qfq"/>
+                            <constraint firstItem="NzO-vN-9dG" firstAttribute="centerX" secondItem="ibh-Hy-gdC" secondAttribute="centerX" id="ux7-X6-yhN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ibh-Hy-gdC"/>
                     </view>
@@ -679,16 +688,16 @@
             </objects>
             <point key="canvasLocation" x="-777" y="-306"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Competition Table View Controller-->
         <scene sceneID="faO-Ne-TNR">
             <objects>
-                <tableViewController id="1LR-HP-L7h" sceneMemberID="viewController">
+                <tableViewController id="1LR-HP-L7h" customClass="CompetitionTableViewController" customModule="JavaScouting2019" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="FFM-PL-Db8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="sCA-s9-nJK">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CompetitionCell" id="sCA-s9-nJK">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sCA-s9-nJK" id="sW6-fw-qxb">
@@ -696,7 +705,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="49e-Tb-3d3" kind="showDetail" id="1Ky-D0-5uG"/>
+                                    <segue destination="49e-Tb-3d3" kind="showDetail" identifier="existingCompetitionToDetail" id="1Ky-D0-5uG"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -796,10 +805,10 @@
             </objects>
             <point key="canvasLocation" x="785" y="383"/>
         </scene>
-        <!--View Controller-->
+        <!--New Team View Controller-->
         <scene sceneID="DWJ-wO-Mxg">
             <objects>
-                <viewController id="TeM-dh-ZuB" sceneMemberID="viewController">
+                <viewController id="TeM-dh-ZuB" customClass="NewTeamViewController" customModule="JavaScouting2019" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ff9-rY-758">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -812,8 +821,8 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Competition Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AoN-5l-GDR">
-                                <rect key="frame" x="95.5" y="170" width="184" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Team Number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AoN-5l-GDR">
+                                <rect key="frame" x="116.5" y="170" width="142.5" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -823,7 +832,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <state key="normal" title="GO"/>
                                 <connections>
-                                    <segue destination="rdD-ua-vfq" kind="showDetail" id="3f9-hF-u3y"/>
+                                    <action selector="onGoButtonTap:" destination="TeM-dh-ZuB" eventType="touchUpInside" id="QfM-GX-lcL"/>
+                                    <segue destination="rdD-ua-vfq" kind="showDetail" identifier="newToTeamDetail" id="gRi-56-FfQ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -840,6 +850,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aZ7-x7-CPg"/>
                     </view>
+                    <connections>
+                        <outlet property="teamNumberTextField" destination="AoN-5l-GDR" id="A9p-QO-LKh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fyt-vx-wi0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -850,7 +863,7 @@
         <image name="ic_settings.png" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="7ez-AI-K2j"/>
-        <segue reference="MWx-4p-Eyc"/>
+        <segue reference="1Ky-D0-5uG"/>
+        <segue reference="gRi-56-FfQ"/>
     </inferredMetricsTieBreakers>
 </document>

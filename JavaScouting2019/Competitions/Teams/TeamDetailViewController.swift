@@ -10,28 +10,15 @@ import UIKit
 
 class TeamDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 	
+	var selectedTeam: ScoutingTeam?
 	
 	@IBOutlet var navBar: UINavigationBar!
 	@IBOutlet var recordLabel: UILabel!
 	@IBOutlet var scoutingItemTable: UITableView!
-
-	override func viewWillAppear(_ animated: Bool) {
-		super.viewWillAppear(animated)
-		
-		if true {
-			let urlString = "https://theorangealliance.org/api/team/\(9984)"
-			print(urlString)
-			if let url = URL(string: urlString) {
-				if let data = try? Data(contentsOf: url) {
-					print("\(data) hey")
-				}
-			}
-		}
-	}
     override func viewDidLoad() {
         super.viewDidLoad()
 		
-		navBar.topItem?.title = "(selectedTeam!.name) - (selectedTeam!.number)"
+		navBar.topItem?.title = "\(selectedTeam!.teamName!) - \(selectedTeam!.teamNum)"
 
         // Do any additional setup after loading the view.
     }
