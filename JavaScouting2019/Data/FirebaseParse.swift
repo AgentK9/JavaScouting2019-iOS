@@ -10,27 +10,33 @@ import Foundation
 import Firebase
 
 class FirebaseParse {
-	func compParse(_ compDoc: DocumentSnapshot, db: Firestore) -> Competition {
+	func compParse(_ compDoc: DocumentSnapshot) -> Competition {
 		let compData = compDoc.data()
 		var comp: Competition!
 		if let newComp = try? JSONSerialization.data(withJSONObject: compData, options: []) {
 			var teamsDone: Bool = false
 			comp = try! JSONDecoder().decode(Competition.self, from: newComp)
 			comp.compID = compDoc.documentID
-			if comp.matches == nil {
-				comp.matches = [Match]()
-			}
 		}
 		return comp
 	}
-	func teamsParse(_ teamDoc: DocumentSnapshot, db: Firestore) -> ScoutingTeam {
+	func teamsParse(_ teamDoc: DocumentSnapshot) -> ScoutingTeam {
 		let teamData = teamDoc.data()
 		var team: ScoutingTeam!
 
 		if let newTeam = try? JSONSerialization.data(withJSONObject: teamData, options: []) {
 			team = try! JSONDecoder().decode(ScoutingTeam.self, from: newTeam)
 		}
-		print("got teams")
+		print("got team")
 		return team
+	}
+	func scoutParse(_ scoutDoc: DocumentSnapshot) -> ScoutingData {
+		let scoutData = scoutDoc.data()
+		var scout: ScoutingData!
+		
+		if let newScout = try? JSONSerialization.data(withJSONObject: scoutData, options: []) {
+			scout = try! JSONDecoder().decode(ScoutingData.self, from: newScout)
+		}
+		return scout
 	}
 }
