@@ -884,9 +884,8 @@
         <image name="ic_settings.png" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="n7h-Jd-DmQ"/>
         <segue reference="7ez-AI-K2j"/>
-        <segue reference="liu-uv-3i4"/>
-        <segue reference="MWx-4p-Eyc"/>
+        <segue reference="JWx-SY-WF8"/>
+        <segue reference="CKH-ba-50m"/>
     </inferredMetricsTieBreakers>
 </document>

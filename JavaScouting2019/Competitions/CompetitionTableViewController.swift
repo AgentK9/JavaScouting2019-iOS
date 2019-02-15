@@ -13,8 +13,8 @@ class CompetitionTableViewController: UITableViewController {
 	
 	var competitions: [Competition] = [Competition]()
 	var db: Firestore!
-	let path: String = "test-competitions"
-	let parser: FirebaseParse = FirebaseParse()
+	let path: String = "/test-competitions/"
+	let grabber = FirebaseGrab()
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,36 +32,16 @@ class CompetitionTableViewController: UITableViewController {
 			getCompetitions()
 		}
 	}
-	
 	func getCompetitions() {
-		db.collection(path).getDocuments() { (querySnapshot, err) in
-			if let err = err {
-				print("Error getting documents: \(err)")
-			} else {
-				for document in querySnapshot!.documents {
-					var comp = self.parser.compParse(document, db: self.db)
-					comp.teams = [ScoutingTeam]()
-					self.db.collection(self.path + "/\(document.documentID)/teams/").getDocuments() { (querySnapshot, err) in
-						if let err = err {
-							print("Error getting documents: \(err)")
-						} else {
-							for teamDoc in (querySnapshot?.documents)! {
-								comp.teams!.append(self.parser.teamsParse(teamDoc, db: self.db))
-								print("got competition")
-							}
-							self.competitions.append(comp)
-						}
-						print("got competitions")
-						self.tableView.reloadData()
-					}
-					
-				}
-				
+		grabber.dlCompetitions(db: db, path: path) { competitionArray, error in
+			if let error = error {
+				return
 			}
-			
+			self.competitions = competitionArray
+			self.tableView.reloadData()
 		}
-		
 	}
+
 
     // MARK: - Table view data source
 
@@ -92,9 +72,7 @@ class CompetitionTableViewController: UITableViewController {
 			let destination = nav.viewControllers.first as! TeamsViewController
 			let indexPath = tableView.indexPathForSelectedRow
 			let comp = self.competitions[indexPath!.row]
-			
-			destination.teams = comp.teams
-			destination.path = self.path + "/" + comp.compID! + "/teams"
+			destination.path = comp.path + "teams/"
 		default:
 			print("unknown segue identifier")
 		}
