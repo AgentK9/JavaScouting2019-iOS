@@ -7,28 +7,48 @@
 //
 
 import UIKit
-
+import Firebase
 import FirebaseAuth
 
 class TeamsViewController: UITableViewController {
 	
-	var teams: [ScoutingTeam]!
+	var teams: [ScoutingTeam] = [ScoutingTeam]()
 	var path: String = ""
+	let grabber = FirebaseGrab()
+	var db: Firestore!
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
-		}
+	}
 	
     override func viewDidLoad() {
-		print(path)
         super.viewDidLoad()
-        
         self.title = "Teams"
+		refresh()
     }
+	
+	func refresh() {
+		if db != nil {
+			getTeams()
+		}
+		else {
+			print("database not initialized. Initializing.")
+			db = Firestore.firestore()
+			getTeams()
+		}
+	}
+	func getTeams() {
+		grabber.dlTeams(db: db, path: path) {teamArray, error in
+			if let error = error {
+				return
+			}
+			self.teams = teamArray
+			self.tableView.reloadData()
+		}
+	}
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		let count = teams.count
-		print(count)
         return count
     }
     
@@ -46,8 +66,9 @@ class TeamsViewController: UITableViewController {
 		case "teamCellToDetail":
 			let destination = segue.destination as! TeamDetailViewController
 			let indexPath = self.tableView.indexPathForSelectedRow!
-			
-			destination.selectedTeam = teams[indexPath.row]
+			let team = teams[indexPath.row]
+			destination.selectedTeam = team
+			destination.path = self.path + "\(team.teamNum)/"
 		case "teamsToNew":
 			let destination = segue.destination as! NewTeamViewController
 			

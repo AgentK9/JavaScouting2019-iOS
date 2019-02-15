@@ -14,5 +14,6 @@ struct ScoutingTeam: Codable {
 	var record: String?
 	var bestScore: Int?
 	var latestScore: Int?
+	var path: String
 	var scouting: [ScoutingData]?
 }

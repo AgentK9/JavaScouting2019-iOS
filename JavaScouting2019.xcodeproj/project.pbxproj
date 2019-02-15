@@ -25,6 +25,8 @@
 		0A033C132213C8A600C27068 /* NewTeamViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A033C112213C8A600C27068 /* NewTeamViewController.xib */; };
 		0A44442A2215E63400F8D987 /* EncodableExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4444292215E63400F8D987 /* EncodableExt.swift */; };
 		0A44442C2215FAE200F8D987 /* FirebaseParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A44442B2215FAE200F8D987 /* FirebaseParse.swift */; };
+		0A44443422165DF600F8D987 /* FirebaseGrab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A44443322165DF600F8D987 /* FirebaseGrab.swift */; };
+		0A4444362217032200F8D987 /* FirebaseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4444352217032200F8D987 /* FirebaseData.swift */; };
 		0A8AA2F8220008BA00E24F01 /* InitScoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8AA2F6220008BA00E24F01 /* InitScoutViewController.swift */; };
 		0A8AA2F9220008BA00E24F01 /* InitScoutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A8AA2F7220008BA00E24F01 /* InitScoutViewController.xib */; };
 		0A8AA2FC220008C900E24F01 /* ScoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8AA2FA220008C900E24F01 /* ScoutViewController.swift */; };
@@ -59,6 +61,8 @@
 		0A033C112213C8A600C27068 /* NewTeamViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewTeamViewController.xib; sourceTree = "<group>"; };
 		0A4444292215E63400F8D987 /* EncodableExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodableExt.swift; sourceTree = "<group>"; };
 		0A44442B2215FAE200F8D987 /* FirebaseParse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseParse.swift; sourceTree = "<group>"; };
+		0A44443322165DF600F8D987 /* FirebaseGrab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseGrab.swift; sourceTree = "<group>"; };
+		0A4444352217032200F8D987 /* FirebaseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FirebaseData.swift; path = ../FirebaseData.swift; sourceTree = "<group>"; };
 		0A8AA2F6220008BA00E24F01 /* InitScoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitScoutViewController.swift; sourceTree = "<group>"; };
 		0A8AA2F7220008BA00E24F01 /* InitScoutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = InitScoutViewController.xib; path = ../InitScoutViewController.xib; sourceTree = "<group>"; };
 		0A8AA2FA220008C900E24F01 /* ScoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ScoutViewController.swift; path = "../New Group/ScoutViewController.swift"; sourceTree = "<group>"; };
@@ -192,6 +196,17 @@
 			path = Analysis;
 			sourceTree = "<group>";
 		};
+		0A4444372217502D00F8D987 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				0A033C0E2213B5B900C27068 /* TOAGrab.swift */,
+				0A44442B2215FAE200F8D987 /* FirebaseParse.swift */,
+				0A44443322165DF600F8D987 /* FirebaseGrab.swift */,
+				0A4444352217032200F8D987 /* FirebaseData.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		0A8AA2F52200089100E24F01 /* Teams */ = {
 			isa = PBXGroup;
 			children = (
@@ -229,15 +244,14 @@
 			children = (
 				0A033BFA22138F5600C27068 /* Onboarding */,
 				0A033BE622126D9200C27068 /* DataStructure */,
-				0AEC5C2021F54F71006CEE45 /* AppDelegate.swift */,
 				0A033C0322139C8400C27068 /* Competitions */,
 				0A033C0D22139E4F00C27068 /* Analysis */,
 				0AEC5C2621F54F71006CEE45 /* Main.storyboard */,
 				0AEC5C2921F54F73006CEE45 /* Assets.xcassets */,
 				0AEC5C2B21F54F73006CEE45 /* LaunchScreen.storyboard */,
 				0AEC5C2E21F54F73006CEE45 /* Info.plist */,
-				0A033C0E2213B5B900C27068 /* TOAGrab.swift */,
-				0A44442B2215FAE200F8D987 /* FirebaseParse.swift */,
+				0A4444372217502D00F8D987 /* Data */,
+				0AEC5C2021F54F71006CEE45 /* AppDelegate.swift */,
 			);
 			path = JavaScouting2019;
 			sourceTree = "<group>";
@@ -413,6 +427,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A4444362217032200F8D987 /* FirebaseData.swift in Sources */,
 				0AEC5C2521F54F71006CEE45 /* SecondViewController.swift in Sources */,
 				0A44442C2215FAE200F8D987 /* FirebaseParse.swift in Sources */,
 				0AEC5C2121F54F71006CEE45 /* AppDelegate.swift in Sources */,
@@ -427,6 +442,7 @@
 				0A8AA2FC220008C900E24F01 /* ScoutViewController.swift in Sources */,
 				0A44442A2215E63400F8D987 /* EncodableExt.swift in Sources */,
 				0A033C122213C8A600C27068 /* NewTeamViewController.swift in Sources */,
+				0A44443422165DF600F8D987 /* FirebaseGrab.swift in Sources */,
 				0AEC5C2321F54F71006CEE45 /* TeamsViewController.swift in Sources */,
 				0A8AA2F8220008BA00E24F01 /* InitScoutViewController.swift in Sources */,
 				0A033C0722139DE700C27068 /* CompetitionTableViewController.swift in Sources */,
