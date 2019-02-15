@@ -11,6 +11,7 @@ import Foundation
 struct ScoutingTeam: Codable {
 	var teamNum: Int
 	var teamName: String?
+	var record: String?
 	var bestScore: Int?
 	var latestScore: Int?
 	var scouting: [ScoutingData]?

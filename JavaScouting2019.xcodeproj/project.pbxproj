@@ -23,6 +23,8 @@
 		0A033C0F2213B5B900C27068 /* TOAGrab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A033C0E2213B5B900C27068 /* TOAGrab.swift */; };
 		0A033C122213C8A600C27068 /* NewTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A033C102213C8A600C27068 /* NewTeamViewController.swift */; };
 		0A033C132213C8A600C27068 /* NewTeamViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A033C112213C8A600C27068 /* NewTeamViewController.xib */; };
+		0A44442A2215E63400F8D987 /* EncodableExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4444292215E63400F8D987 /* EncodableExt.swift */; };
+		0A44442C2215FAE200F8D987 /* FirebaseParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A44442B2215FAE200F8D987 /* FirebaseParse.swift */; };
 		0A8AA2F8220008BA00E24F01 /* InitScoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8AA2F6220008BA00E24F01 /* InitScoutViewController.swift */; };
 		0A8AA2F9220008BA00E24F01 /* InitScoutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A8AA2F7220008BA00E24F01 /* InitScoutViewController.xib */; };
 		0A8AA2FC220008C900E24F01 /* ScoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8AA2FA220008C900E24F01 /* ScoutViewController.swift */; };
@@ -55,6 +57,8 @@
 		0A033C0E2213B5B900C27068 /* TOAGrab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOAGrab.swift; sourceTree = "<group>"; };
 		0A033C102213C8A600C27068 /* NewTeamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTeamViewController.swift; sourceTree = "<group>"; };
 		0A033C112213C8A600C27068 /* NewTeamViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewTeamViewController.xib; sourceTree = "<group>"; };
+		0A4444292215E63400F8D987 /* EncodableExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodableExt.swift; sourceTree = "<group>"; };
+		0A44442B2215FAE200F8D987 /* FirebaseParse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseParse.swift; sourceTree = "<group>"; };
 		0A8AA2F6220008BA00E24F01 /* InitScoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitScoutViewController.swift; sourceTree = "<group>"; };
 		0A8AA2F7220008BA00E24F01 /* InitScoutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = InitScoutViewController.xib; path = ../InitScoutViewController.xib; sourceTree = "<group>"; };
 		0A8AA2FA220008C900E24F01 /* ScoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ScoutViewController.swift; path = "../New Group/ScoutViewController.swift"; sourceTree = "<group>"; };
@@ -90,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				0A033BE722126DA000C27068 /* Team */,
+				0A4444292215E63400F8D987 /* EncodableExt.swift */,
 			);
 			path = DataStructure;
 			sourceTree = "<group>";
@@ -232,6 +237,7 @@
 				0AEC5C2B21F54F73006CEE45 /* LaunchScreen.storyboard */,
 				0AEC5C2E21F54F73006CEE45 /* Info.plist */,
 				0A033C0E2213B5B900C27068 /* TOAGrab.swift */,
+				0A44442B2215FAE200F8D987 /* FirebaseParse.swift */,
 			);
 			path = JavaScouting2019;
 			sourceTree = "<group>";
@@ -408,6 +414,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AEC5C2521F54F71006CEE45 /* SecondViewController.swift in Sources */,
+				0A44442C2215FAE200F8D987 /* FirebaseParse.swift in Sources */,
 				0AEC5C2121F54F71006CEE45 /* AppDelegate.swift in Sources */,
 				0A033BEF22126E7F00C27068 /* Team.swift in Sources */,
 				0A033C0B22139E0B00C27068 /* AddCompetitionViewController.swift in Sources */,
@@ -418,6 +425,7 @@
 				0A033C0F2213B5B900C27068 /* TOAGrab.swift in Sources */,
 				0A033BF322126F4300C27068 /* Member.swift in Sources */,
 				0A8AA2FC220008C900E24F01 /* ScoutViewController.swift in Sources */,
+				0A44442A2215E63400F8D987 /* EncodableExt.swift in Sources */,
 				0A033C122213C8A600C27068 /* NewTeamViewController.swift in Sources */,
 				0AEC5C2321F54F71006CEE45 /* TeamsViewController.swift in Sources */,
 				0A8AA2F8220008BA00E24F01 /* InitScoutViewController.swift in Sources */,

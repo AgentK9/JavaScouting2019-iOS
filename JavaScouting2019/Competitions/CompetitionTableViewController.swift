@@ -13,7 +13,9 @@ class CompetitionTableViewController: UITableViewController {
 	
 	var competitions: [Competition] = [Competition]()
 	var db: Firestore!
-        
+	let path: String = "test-competitions"
+	let parser: FirebaseParse = FirebaseParse()
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 		
@@ -32,31 +34,29 @@ class CompetitionTableViewController: UITableViewController {
 	}
 	
 	func getCompetitions() {
-		db.collection("test-competitions").getDocuments() { (querySnapshot, err) in
+		db.collection(path).getDocuments() { (querySnapshot, err) in
 			if let err = err {
 				print("Error getting documents: \(err)")
 			} else {
 				for document in querySnapshot!.documents {
-					let compDoc = document
-					let compData = compDoc.data()
-					if let newComp = try? JSONSerialization.data(withJSONObject: compData, options: []) {
-						var comp: Competition!
-						
-						comp = try! JSONDecoder().decode(Competition.self, from: newComp)
-						comp.compID = compDoc.documentID
-						if comp.matches == nil {
-							comp.matches = [Match]()
+					var comp = self.parser.compParse(document, db: self.db)
+					comp.teams = [ScoutingTeam]()
+					self.db.collection(self.path + "/\(document.documentID)/teams/").getDocuments() { (querySnapshot, err) in
+						if let err = err {
+							print("Error getting documents: \(err)")
+						} else {
+							for teamDoc in (querySnapshot?.documents)! {
+								comp.teams!.append(self.parser.teamsParse(teamDoc, db: self.db))
+								print("got competition")
+							}
+							self.competitions.append(comp)
 						}
-						if comp.teams == nil {
-							comp.teams = [ScoutingTeam]()
-						}
-						self.competitions.append(comp)
-						print(comp)
-						
+						print("got competitions")
+						self.tableView.reloadData()
 					}
 					
 				}
-				self.tableView.reloadData()
+				
 			}
 			
 		}
@@ -91,11 +91,16 @@ class CompetitionTableViewController: UITableViewController {
 			let nav = tab.viewControllers?.first as! UINavigationController
 			let destination = nav.viewControllers.first as! TeamsViewController
 			let indexPath = tableView.indexPathForSelectedRow
+			let comp = self.competitions[indexPath!.row]
 			
-			destination.teams = self.competitions[indexPath!.row].teams
+			destination.teams = comp.teams
+			destination.path = self.path + "/" + comp.compID! + "/teams"
 		default:
 			print("unknown segue identifier")
 		}
     }
+	
+	@IBAction func unwindFromCompDetail(segue: UIStoryboardSegue) {
+	}
     
 }

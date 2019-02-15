@@ -10,15 +10,17 @@ import UIKit
 
 class TeamDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 	
-	var selectedTeam: ScoutingTeam?
-	
 	@IBOutlet var navBar: UINavigationBar!
 	@IBOutlet var recordLabel: UILabel!
 	@IBOutlet var scoutingItemTable: UITableView!
+	
+	var selectedTeam: ScoutingTeam?
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 		
 		navBar.topItem?.title = "\(selectedTeam!.teamName!) - \(selectedTeam!.teamNum)"
+		recordLabel.text = "Season Record: " + selectedTeam!.record!
 
         // Do any additional setup after loading the view.
     }
@@ -42,6 +44,16 @@ class TeamDetailViewController: UIViewController, UITableViewDelegate, UITableVi
 	}
 	
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		let identifier = segue.identifier
+		switch identifier {
+		case "detailToNewScout":
+			let destination = segue.destination as! InitScoutViewController
+			
+			destination.teamNum = self.selectedTeam?.teamNum
+			
+		default:
+			print("unknown segue identifier")
+		}
     }
 	
 	

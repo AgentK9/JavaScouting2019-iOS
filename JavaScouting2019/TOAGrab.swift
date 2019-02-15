@@ -13,7 +13,7 @@ class TOAGrab {
 	func grabTeam(_ number: Int, completionHandler: @escaping (Data?, Error?) -> Void) -> ScoutingTeam
 	{
 		do {
-			var toTeam: ScoutingTeam! = ScoutingTeam(teamNum: -1, teamName: nil, bestScore: nil, latestScore: nil, scouting: nil)
+			var toTeam: ScoutingTeam! = ScoutingTeam(teamNum: -1, teamName: nil, record: nil, bestScore: nil, latestScore: nil, scouting: nil)
 			let url = URL(string: "https://theorangealliance.org/api/team/\(number)")!
 			var request = URLRequest(url: url)
 			request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -36,16 +36,47 @@ class TOAGrab {
 					toTeam.teamName = team.team_name_short
 				}
 				isDone = true
-				
 			}
-
 			task.resume()
 			while isDone != true {
 			}
-			print()
-			print(toTeam)
-			print()
 			return toTeam
+		}
+		catch {
+			completionHandler(nil, error)
+		}
+		
+	}
+	func grabTeamWLT(_ number: Int, completionHandler: @escaping (Data?, Error?) -> Void) -> String
+	{
+		do {
+			var str: String!
+			let url = URL(string: "https://theorangealliance.org/api/team/\(number)/wlt?season_key=1819")!
+			var request = URLRequest(url: url)
+			request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+			request.setValue(apikey, forHTTPHeaderField: "X-TOA-KEY")
+			request.setValue("JavaScouting2019iOS", forHTTPHeaderField: "X-Application-Origin")
+			var isDone = false
+			
+			let task = URLSession.shared.dataTask(with: request) { data, response, error in
+				guard let data = data, error == nil else {
+					completionHandler(nil, error)
+					return
+				}
+				
+				completionHandler(data, nil)
+				print(String(decoding: data, as: UTF8.self))
+				let decoder = JSONDecoder()
+				let recorddata = try! decoder.decode([TOATeamRecord].self, from: data)
+				let record = recorddata[0]
+				str = "\(record.wins)-\(record.losses)-\(record.ties)"
+				isDone = true
+			}
+			
+			task.resume()
+			while isDone != true {
+			}
+			return str
 		}
 		catch {
 			completionHandler(nil, error)
@@ -69,4 +100,10 @@ struct TOATeamObj: Codable {
 	var country: String?
 	var rookie_year: Int
 	var website: String?
+}
+
+struct TOATeamRecord: Codable {
+	var wins: Int
+	var losses: Int
+	var ties: Int
 }

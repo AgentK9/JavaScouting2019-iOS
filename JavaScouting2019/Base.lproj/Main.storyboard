@@ -43,7 +43,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="rdD-ua-vfq" kind="showDetail" id="lpG-Bc-ea0"/>
+                                    <segue destination="rdD-ua-vfq" kind="showDetail" identifier="teamCellToDetail" id="CKH-ba-50m"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -53,10 +53,15 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="J5L-z6-7kY">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="zED-qI-ctA">
+                            <connections>
+                                <segue destination="mIh-aC-Wqo" kind="unwind" unwindAction="unwindFromCompDetailWithSegue:" id="VP7-eF-eGY"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem systemItem="add" id="tRv-kQ-4bD">
                                 <connections>
-                                    <segue destination="TeM-dh-ZuB" kind="showDetail" id="x2h-F2-j6X"/>
+                                    <segue destination="TeM-dh-ZuB" kind="showDetail" identifier="teamsToNew" id="x2h-F2-j6X"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem systemItem="refresh" id="NNP-jc-YHD"/>
@@ -64,6 +69,7 @@
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eo2-GB-N4Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="mIh-aC-Wqo" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1540" y="-306"/>
         </scene>
@@ -86,7 +92,11 @@
                                             </connections>
                                         </barButtonItem>
                                         <rightBarButtonItems>
-                                            <barButtonItem systemItem="add" id="9S5-yi-OY3"/>
+                                            <barButtonItem systemItem="add" id="9S5-yi-OY3">
+                                                <connections>
+                                                    <segue destination="OZM-4C-KdW" kind="showDetail" identifier="detailToNewScout" id="n7h-Jd-DmQ"/>
+                                                </connections>
+                                            </barButtonItem>
                                             <barButtonItem systemItem="refresh" id="Xag-Uy-yec"/>
                                         </rightBarButtonItems>
                                     </navigationItem>
@@ -118,9 +128,6 @@
                                                 <constraint firstItem="Av1-1J-bxR" firstAttribute="leading" secondItem="9Iz-Dq-TsH" secondAttribute="leading" id="ixN-Xi-944"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="OZM-4C-KdW" kind="showDetail" id="Xuj-pQ-VXV"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemScoutingCell" textLabel="8Pg-6X-77G" detailTextLabel="CwG-EM-kut" style="IBUITableViewCellStyleValue1" id="LuK-ef-K8a">
                                         <rect key="frame" x="0.0" y="72" width="375" height="44"/>
@@ -235,16 +242,6 @@
                                     <action selector="initMatchChanged:" destination="OZM-4C-KdW" eventType="valueChanged" id="hWy-Zg-wma"/>
                                 </connections>
                             </segmentedControl>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Team Number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ON1-Nq-iRq">
-                                <rect key="frame" x="120" y="95" width="135" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="08h-Zk-1bG"/>
-                                </constraints>
-                                <viewLayoutGuide key="safeArea" id="Dvh-VX-NZb"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T1O-au-Zti">
                                 <rect key="frame" x="165.5" y="504" width="44" height="48"/>
                                 <viewLayoutGuide key="safeArea" id="GfD-Zc-Aef"/>
@@ -252,6 +249,7 @@
                                 <state key="normal" title="GO"/>
                                 <connections>
                                     <action selector="goToScout:" destination="OZM-4C-KdW" eventType="touchUpInside" id="5jf-Bf-UiY"/>
+                                    <segue destination="iCY-ZS-c7u" kind="showDetail" identifier="goToScout" id="liu-uv-3i4"/>
                                 </connections>
                             </button>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2aV-SH-4EU">
@@ -277,15 +275,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="ON1-Nq-iRq" firstAttribute="leading" secondItem="C5h-E4-dxg" secondAttribute="leading" constant="120" id="0og-Be-8uj"/>
                             <constraint firstItem="T1O-au-Zti" firstAttribute="centerX" secondItem="C5h-E4-dxg" secondAttribute="centerX" id="4bH-vx-gel"/>
                             <constraint firstItem="2aV-SH-4EU" firstAttribute="top" secondItem="C5h-E4-dxg" secondAttribute="top" id="O9X-Ko-Jj0"/>
                             <constraint firstItem="2MS-HV-2dp" firstAttribute="centerY" secondItem="C5h-E4-dxg" secondAttribute="centerY" id="U4d-DK-tT9"/>
                             <constraint firstItem="2MS-HV-2dp" firstAttribute="centerX" secondItem="C5h-E4-dxg" secondAttribute="centerX" id="fAQ-Wk-J2b"/>
-                            <constraint firstItem="ON1-Nq-iRq" firstAttribute="top" secondItem="C5h-E4-dxg" secondAttribute="top" constant="75" id="fH8-Lc-eEe"/>
                             <constraint firstItem="wPQ-61-VM8" firstAttribute="centerX" secondItem="C5h-E4-dxg" secondAttribute="centerX" id="gnG-4v-Zrg"/>
                             <constraint firstItem="2aV-SH-4EU" firstAttribute="leading" secondItem="C5h-E4-dxg" secondAttribute="leading" id="mzy-wa-jPP"/>
-                            <constraint firstItem="ON1-Nq-iRq" firstAttribute="centerX" secondItem="C5h-E4-dxg" secondAttribute="centerX" id="ry4-gE-lIx"/>
                             <constraint firstItem="2MS-HV-2dp" firstAttribute="leading" secondItem="C5h-E4-dxg" secondAttribute="leading" constant="16" id="tcG-SG-ffF"/>
                             <constraint firstItem="C5h-E4-dxg" firstAttribute="bottom" secondItem="T1O-au-Zti" secondAttribute="bottom" constant="115" id="vew-aY-pTs"/>
                             <constraint firstItem="2aV-SH-4EU" firstAttribute="centerX" secondItem="C5h-E4-dxg" secondAttribute="centerX" id="xh9-E3-bhE"/>
@@ -296,9 +291,9 @@
                     <connections>
                         <outlet property="goButton" destination="T1O-au-Zti" id="I7S-Jb-Tav"/>
                         <outlet property="initMatch" destination="2MS-HV-2dp" id="BKq-1y-48e"/>
-                        <outlet property="matchNum" destination="wPQ-61-VM8" id="peH-sw-SLc"/>
+                        <outlet property="matchNumField" destination="wPQ-61-VM8" id="E21-w1-c3i"/>
                         <outlet property="navBar" destination="2aV-SH-4EU" id="845-jc-d7h"/>
-                        <outlet property="teamNumField" destination="ON1-Nq-iRq" id="gtm-l0-MHY"/>
+                        <outlet property="teamNumField" destination="wPQ-61-VM8" id="V9y-EL-XyK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dWr-JE-xmf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -338,10 +333,16 @@
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="TSz-Gt-Np8">
                                 <rect key="frame" x="242" y="397" width="94" height="29"/>
                                 <viewLayoutGuide key="safeArea" id="qR0-hk-Jgr"/>
+                                <connections>
+                                    <action selector="onLanderChanged:" destination="iCY-ZS-c7u" eventType="valueChanged" id="OBp-fx-eOn"/>
+                                </connections>
                             </stepper>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="syg-IK-cGt">
                                 <rect key="frame" x="39" y="397" width="94" height="29"/>
                                 <viewLayoutGuide key="safeArea" id="zXC-JR-LY1"/>
+                                <connections>
+                                    <action selector="onDepotChanged:" destination="iCY-ZS-c7u" eventType="valueChanged" id="EKf-eF-0nj"/>
+                                </connections>
                             </stepper>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="26W-Cu-Bhz">
                                 <rect key="frame" x="16" y="209" width="343" height="29"/>
@@ -349,6 +350,9 @@
                                     <segment title="Claim"/>
                                     <segment title="Not"/>
                                 </segments>
+                                <connections>
+                                    <action selector="onClaimChanged:" destination="iCY-ZS-c7u" eventType="valueChanged" id="PqG-KX-CKB"/>
+                                </connections>
                             </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="gid-3x-LXl">
                                 <rect key="frame" x="16" y="79" width="343" height="29"/>
@@ -356,6 +360,9 @@
                                     <segment title="Land"/>
                                     <segment title="Not"/>
                                 </segments>
+                                <connections>
+                                    <action selector="onLandChange:" destination="iCY-ZS-c7u" eventType="valueChanged" id="uVV-wx-p0U"/>
+                                </connections>
                             </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="wMn-NL-Edp">
                                 <rect key="frame" x="16" y="476" width="343" height="29"/>
@@ -366,6 +373,9 @@
                                     <segment title="Full Park"/>
                                     <segment title="Not"/>
                                 </segments>
+                                <connections>
+                                    <action selector="onEndGameChanged:" destination="iCY-ZS-c7u" eventType="valueChanged" id="jo4-V2-so0"/>
+                                </connections>
                             </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="2q9-Ar-Ed7">
                                 <rect key="frame" x="16" y="131" width="343" height="29"/>
@@ -376,6 +386,9 @@
                                     <segment title="Chance"/>
                                     <segment title="Not"/>
                                 </segments>
+                                <connections>
+                                    <action selector="onSampleChanged:" destination="iCY-ZS-c7u" eventType="valueChanged" id="Vxa-P7-Bps"/>
+                                </connections>
                             </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="1D1-y5-cML">
                                 <rect key="frame" x="16" y="274" width="343" height="29"/>
@@ -384,6 +397,9 @@
                                     <segment title="Partial Park"/>
                                     <segment title="Not"/>
                                 </segments>
+                                <connections>
+                                    <action selector="onParkChanged:" destination="iCY-ZS-c7u" eventType="valueChanged" id="lza-MP-3Hq"/>
+                                </connections>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="taW-bk-1CE">
                                 <rect key="frame" x="169" y="595" width="37" height="30"/>
@@ -431,14 +447,13 @@
                     </view>
                     <connections>
                         <outlet property="claim" destination="26W-Cu-Bhz" id="aLp-qK-x4k"/>
-                        <outlet property="depotMin" destination="RRk-Dx-IPw" id="0PD-3H-Bmt"/>
-                        <outlet property="depotMinLabel" destination="RRk-Dx-IPw" id="DVn-gk-inY"/>
-                        <outlet property="depotMinStep" destination="syg-IK-cGt" id="ZL7-7b-S3n"/>
+                        <outlet property="depotMinLabel" destination="RRk-Dx-IPw" id="NaH-G4-BFZ"/>
+                        <outlet property="depotMinStep" destination="syg-IK-cGt" id="7pL-P7-gya"/>
                         <outlet property="doneButton" destination="taW-bk-1CE" id="t9j-fj-a2e"/>
                         <outlet property="endGame" destination="wMn-NL-Edp" id="wpd-5f-CgP"/>
                         <outlet property="land" destination="gid-3x-LXl" id="Utn-m5-o9f"/>
-                        <outlet property="landerMinLabel" destination="4d0-fV-kiN" id="pUM-lX-ebu"/>
-                        <outlet property="landerMinStep" destination="TSz-Gt-Np8" id="fcp-cE-0x2"/>
+                        <outlet property="landerMinLabel" destination="4d0-fV-kiN" id="zus-3h-ah6"/>
+                        <outlet property="landerMinStep" destination="TSz-Gt-Np8" id="ZhN-3k-wLZ"/>
                         <outlet property="navBar" destination="Zya-Og-BAH" id="puJ-lI-Da0"/>
                         <outlet property="park" destination="1D1-y5-cML" id="xnR-pt-U9o"/>
                         <outlet property="sample" destination="2q9-Ar-Ed7" id="QaV-dp-Zdp"/>
@@ -475,6 +490,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="a6k-mS-8xf">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="UZH-Pq-iEh">
+                            <connections>
+                                <segue destination="yYV-8m-rGc" kind="unwind" unwindAction="unwindFromCompDetailWithSegue:" id="Osx-9w-Yjz"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem systemItem="add" id="M7c-5b-jhp">
                                 <connections>
@@ -486,6 +506,7 @@
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cc7-9R-0to" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="yYV-8m-rGc" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1540" y="383"/>
         </scene>
@@ -647,42 +668,37 @@
                                 </items>
                             </navigationBar>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Competition Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C1E-l1-yfy">
-                                <rect key="frame" x="95.5" y="170" width="184" height="30"/>
+                                <rect key="frame" x="95.5" y="328.5" width="184" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Vh-d4-g5o">
-                                <rect key="frame" x="100" y="420" width="175" height="60"/>
+                                <rect key="frame" x="158" y="408.5" width="59" height="60"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <state key="normal" title="GO"/>
                                 <connections>
-                                    <segue destination="49e-Tb-3d3" kind="showDetail" id="7ez-AI-K2j"/>
+                                    <action selector="onGoButtonPress:" destination="U41-wV-ckv" eventType="touchUpInside" id="ghk-WM-Ov4"/>
+                                    <segue destination="49e-Tb-3d3" kind="showDetail" identifier="newCompToDetail" id="7ez-AI-K2j"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Competition ID" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NzO-vN-9dG">
-                                <rect key="frame" x="95" y="256" width="184" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="3V2-67-sU9" firstAttribute="centerX" secondItem="ibh-Hy-gdC" secondAttribute="centerX" id="3Rt-Xx-sOs"/>
                             <constraint firstItem="5Vh-d4-g5o" firstAttribute="centerX" secondItem="ibh-Hy-gdC" secondAttribute="centerX" id="4hF-rt-rh1"/>
-                            <constraint firstItem="C1E-l1-yfy" firstAttribute="top" secondItem="ibh-Hy-gdC" secondAttribute="top" constant="150" id="5pe-RT-fLH"/>
-                            <constraint firstItem="NzO-vN-9dG" firstAttribute="top" secondItem="C1E-l1-yfy" secondAttribute="bottom" constant="56" id="MNP-wf-tRq"/>
                             <constraint firstItem="C1E-l1-yfy" firstAttribute="centerX" secondItem="ibh-Hy-gdC" secondAttribute="centerX" id="WGd-7n-yuZ"/>
-                            <constraint firstItem="NzO-vN-9dG" firstAttribute="leading" secondItem="ibh-Hy-gdC" secondAttribute="leading" constant="95" id="WIc-Y8-gJc"/>
-                            <constraint firstItem="5Vh-d4-g5o" firstAttribute="leading" secondItem="ibh-Hy-gdC" secondAttribute="leading" constant="100" id="a0D-JQ-OXS"/>
+                            <constraint firstItem="C1E-l1-yfy" firstAttribute="centerY" secondItem="ibh-Hy-gdC" secondAttribute="centerY" id="XqV-CE-hvC"/>
+                            <constraint firstItem="5Vh-d4-g5o" firstAttribute="top" secondItem="C1E-l1-yfy" secondAttribute="bottom" constant="50" id="f8y-88-Lx3"/>
                             <constraint firstItem="3V2-67-sU9" firstAttribute="leading" secondItem="ibh-Hy-gdC" secondAttribute="leading" id="m3V-kU-GVR"/>
-                            <constraint firstItem="5Vh-d4-g5o" firstAttribute="top" secondItem="ibh-Hy-gdC" secondAttribute="top" constant="400" id="pej-lD-i2O"/>
                             <constraint firstItem="3V2-67-sU9" firstAttribute="top" secondItem="ibh-Hy-gdC" secondAttribute="top" id="pvO-5Q-Qfq"/>
-                            <constraint firstItem="NzO-vN-9dG" firstAttribute="centerX" secondItem="ibh-Hy-gdC" secondAttribute="centerX" id="ux7-X6-yhN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ibh-Hy-gdC"/>
                     </view>
+                    <connections>
+                        <outlet property="nameTextField" destination="C1E-l1-yfy" id="r9D-aL-3iP"/>
+                        <outlet property="navBar" destination="3V2-67-sU9" id="eo0-Cx-YmW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w5x-XK-Shb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -817,7 +833,11 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <items>
                                     <navigationItem title="Title" id="9kb-XC-MZf">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="2Hr-q5-jpT"/>
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="2Hr-q5-jpT">
+                                            <connections>
+                                                <segue destination="OKS-61-z7q" kind="unwind" unwindAction="unwindFromTeamInitWithSegue:" id="fJY-rp-D61"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -855,6 +875,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fyt-vx-wi0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="OKS-61-z7q" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2305" y="-684"/>
         </scene>
@@ -863,7 +884,9 @@
         <image name="ic_settings.png" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1Ky-D0-5uG"/>
-        <segue reference="gRi-56-FfQ"/>
+        <segue reference="n7h-Jd-DmQ"/>
+        <segue reference="7ez-AI-K2j"/>
+        <segue reference="liu-uv-3i4"/>
+        <segue reference="MWx-4p-Eyc"/>
     </inferredMetricsTieBreakers>
 </document>

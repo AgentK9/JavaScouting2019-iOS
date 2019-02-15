@@ -12,17 +12,20 @@ class InitScoutViewController: UIViewController {
 
 	@IBOutlet var navBar: UINavigationBar!
 	@IBOutlet var teamNumField: UITextField!
-	@IBOutlet var compField: UITextField!
 	@IBOutlet var initMatch: UISegmentedControl!
 	@IBOutlet var matchNumField: UITextField!
 	@IBOutlet var goButton: UIButton!
 	
-	var matchNum: Int = 0
-	var teamNum: Int = 0
-	var comp: String = ""
+	var isInitial: Bool!
+	var matchNum: Int!
+	var teamNum: Int!
+	var comp: String!
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
+		isInitial = false
+		matchNum = 0
+		comp = ""
 		
 		self.navBar!.topItem!.title = "New Scouting Item"
 
@@ -33,6 +36,7 @@ class InitScoutViewController: UIViewController {
 		let selected = initMatch.selectedSegmentIndex
 		
 		if selected == 0 {
+			isInitial = true
 			matchNumField.isEnabled = false
 			matchNum = 0
 		}
@@ -55,12 +59,6 @@ class InitScoutViewController: UIViewController {
 		else {
 			goodToContinue = false
 		}
-		if let text = compField.text {
-			comp = text
-		}
-		else {
-			goodToContinue = false
-		}
 		if let text = matchNumField.text {
 			if let num = Int(text) {
 				matchNum = num
@@ -72,10 +70,7 @@ class InitScoutViewController: UIViewController {
 		else {
 			goodToContinue = false
 		}
-		if goodToContinue {
-			performSegue(withIdentifier: "goToScout", sender: self)
-		}
-		else {
+		if goodToContinue == false {
 			raiseInvalidInputToUser()
 		}
 		
@@ -92,7 +87,11 @@ class InitScoutViewController: UIViewController {
 		switch identifier {
 		case "goToScout":
 			let destination = segue.destination as! ScoutViewController
-
+			
+			destination.isInitial = self.isInitial
+			destination.matchNum = self.matchNum
+			destination.teamNum = self.teamNum
+			
 		default:
 			print("Unrecognized segue identifier")
 		}

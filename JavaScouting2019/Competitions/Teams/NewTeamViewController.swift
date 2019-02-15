@@ -7,17 +7,21 @@
 //
 
 import UIKit
+import Firebase
 
 class NewTeamViewController: UIViewController {
 
 	var toTeamNumber: Int!
 	var toTeam: ScoutingTeam!
 	let toa = TOAGrab()
+	var db: Firestore!
+	var path: String = ""
 	
 	@IBOutlet var teamNumberTextField: UITextField!
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
+		db = Firestore.firestore()
 
 		self.title = "Add New Team"
         // Do any additional setup after loading the view.
@@ -31,6 +35,16 @@ class NewTeamViewController: UIViewController {
 				return
 			}
 		}
+		toTeam.record = toa.grabTeamWLT(toTeam.teamNum) { data, error in
+			guard let data = data else {
+				print(error)
+				return
+			}
+		}
+		
+		db.document(path + "/\(toTeam.teamNum)").setData(toTeam.dictionary)
+		
+		
 	}
 	
 
