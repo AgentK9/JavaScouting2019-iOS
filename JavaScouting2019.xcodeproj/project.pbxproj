@@ -29,6 +29,9 @@
 		0A4444362217032200F8D987 /* FirebaseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4444352217032200F8D987 /* FirebaseData.swift */; };
 		0A44443A2217706300F8D987 /* NewMatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4444382217706300F8D987 /* NewMatchViewController.swift */; };
 		0A44443B2217706300F8D987 /* NewMatchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A4444392217706300F8D987 /* NewMatchViewController.xib */; };
+		0A44443E221852F000F8D987 /* TeamSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A44443C221852F000F8D987 /* TeamSelectViewController.swift */; };
+		0A44443F221852F000F8D987 /* TeamSelectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A44443D221852F000F8D987 /* TeamSelectViewController.xib */; };
+		0A4444412218767100F8D987 /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4444402218767100F8D987 /* Path.swift */; };
 		0A8AA2F8220008BA00E24F01 /* InitScoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8AA2F6220008BA00E24F01 /* InitScoutViewController.swift */; };
 		0A8AA2F9220008BA00E24F01 /* InitScoutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A8AA2F7220008BA00E24F01 /* InitScoutViewController.xib */; };
 		0A8AA2FC220008C900E24F01 /* ScoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8AA2FA220008C900E24F01 /* ScoutViewController.swift */; };
@@ -67,6 +70,9 @@
 		0A4444352217032200F8D987 /* FirebaseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FirebaseData.swift; path = ../FirebaseData.swift; sourceTree = "<group>"; };
 		0A4444382217706300F8D987 /* NewMatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMatchViewController.swift; sourceTree = "<group>"; };
 		0A4444392217706300F8D987 /* NewMatchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewMatchViewController.xib; sourceTree = "<group>"; };
+		0A44443C221852F000F8D987 /* TeamSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamSelectViewController.swift; sourceTree = "<group>"; };
+		0A44443D221852F000F8D987 /* TeamSelectViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeamSelectViewController.xib; sourceTree = "<group>"; };
+		0A4444402218767100F8D987 /* Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Path.swift; sourceTree = "<group>"; };
 		0A8AA2F6220008BA00E24F01 /* InitScoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitScoutViewController.swift; sourceTree = "<group>"; };
 		0A8AA2F7220008BA00E24F01 /* InitScoutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = InitScoutViewController.xib; path = ../InitScoutViewController.xib; sourceTree = "<group>"; };
 		0A8AA2FA220008C900E24F01 /* ScoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ScoutViewController.swift; path = "../New Group/ScoutViewController.swift"; sourceTree = "<group>"; };
@@ -172,7 +178,7 @@
 		0A033C0322139C8400C27068 /* Competitions */ = {
 			isa = PBXGroup;
 			children = (
-				0A033C0D22139E4F00C27068 /* Analysis */,
+				0A033C0D22139E4F00C27068 /* Matches */,
 				0A8AA2F52200089100E24F01 /* Teams */,
 				0A033C0922139E0B00C27068 /* AddCompetitionViewController.swift */,
 				0A033C0522139DE700C27068 /* CompetitionTableViewController.swift */,
@@ -193,14 +199,16 @@
 			path = Scouting;
 			sourceTree = "<group>";
 		};
-		0A033C0D22139E4F00C27068 /* Analysis */ = {
+		0A033C0D22139E4F00C27068 /* Matches */ = {
 			isa = PBXGroup;
 			children = (
 				0AEC5C2421F54F71006CEE45 /* MatchTableViewController.swift */,
 				0A4444382217706300F8D987 /* NewMatchViewController.swift */,
+				0A44443C221852F000F8D987 /* TeamSelectViewController.swift */,
 				0A4444392217706300F8D987 /* NewMatchViewController.xib */,
+				0A44443D221852F000F8D987 /* TeamSelectViewController.xib */,
 			);
-			path = Analysis;
+			path = Matches;
 			sourceTree = "<group>";
 		};
 		0A4444372217502D00F8D987 /* Data */ = {
@@ -210,6 +218,7 @@
 				0A44442B2215FAE200F8D987 /* FirebaseParse.swift */,
 				0A44443322165DF600F8D987 /* FirebaseGrab.swift */,
 				0A4444352217032200F8D987 /* FirebaseData.swift */,
+				0A4444402218767100F8D987 /* Path.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -349,6 +358,7 @@
 				0A033C132213C8A600C27068 /* NewTeamViewController.xib in Resources */,
 				0A033C0C22139E0B00C27068 /* AddCompetitionViewController.xib in Resources */,
 				0A8AA2F9220008BA00E24F01 /* InitScoutViewController.xib in Resources */,
+				0A44443F221852F000F8D987 /* TeamSelectViewController.xib in Resources */,
 				0A8AA301220008D800E24F01 /* TeamDetailViewController.xib in Resources */,
 				0A033BE522126BAD00C27068 /* GoogleService-Info.plist in Resources */,
 			);
@@ -444,9 +454,11 @@
 				0A033BF92212711F00C27068 /* ScoutingData.swift in Sources */,
 				0A033BF522126FCF00C27068 /* Match.swift in Sources */,
 				0A8AA300220008D800E24F01 /* TeamDetailViewController.swift in Sources */,
+				0A4444412218767100F8D987 /* Path.swift in Sources */,
 				0A033BF72212709C00C27068 /* ScoutingTeam.swift in Sources */,
 				0A033C0F2213B5B900C27068 /* TOAGrab.swift in Sources */,
 				0A033BF322126F4300C27068 /* Member.swift in Sources */,
+				0A44443E221852F000F8D987 /* TeamSelectViewController.swift in Sources */,
 				0A8AA2FC220008C900E24F01 /* ScoutViewController.swift in Sources */,
 				0A44442A2215E63400F8D987 /* EncodableExt.swift in Sources */,
 				0A033C122213C8A600C27068 /* NewTeamViewController.swift in Sources */,
