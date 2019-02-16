@@ -12,6 +12,6 @@ struct Match: Codable {
 	var matchNum: Int
 	var redScore: Int?
 	var blueScore: Int?
-	var redTeams: [ScoutingTeam]
-	var blueTeams: [ScoutingTeam]
+	var redTeams: [Int]
+	var blueTeams: [Int]
 }

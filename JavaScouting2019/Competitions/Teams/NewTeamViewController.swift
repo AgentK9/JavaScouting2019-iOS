@@ -42,7 +42,7 @@ class NewTeamViewController: UIViewController {
 			}
 		}
 		
-		db.document(path + "/\(toTeam.teamNum)").setData(toTeam.dictionary)
+		db.document(path + "\(toTeam.teamNum)").setData(toTeam.dictionary)
 		
 		
 	}
@@ -59,6 +59,8 @@ class NewTeamViewController: UIViewController {
 		case "newToTeamDetail":
 			let destination = segue.destination as! TeamDetailViewController
 			destination.selectedTeam = self.toTeam
+			destination.path = self.path + "\(self.toTeam.teamNum)/"
+			print(destination.path)
 		default:
 			print("unrecognized segue identifier")
 		}

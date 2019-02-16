@@ -20,6 +20,16 @@ class FirebaseParse {
 		}
 		return comp
 	}
+	func matchesParse(_ matchDoc: DocumentSnapshot) -> Match {
+		let matchData = matchDoc.data()
+		var match: Match!
+		
+		if let newMatch = try? JSONSerialization.data(withJSONObject: matchData, options: []) {
+			match = try! JSONDecoder().decode(Match.self, from: newMatch)
+		}
+		print("got match")
+		return match
+	}
 	func teamsParse(_ teamDoc: DocumentSnapshot) -> ScoutingTeam {
 		let teamData = teamDoc.data()
 		var team: ScoutingTeam!

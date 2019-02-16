@@ -27,7 +27,8 @@ class AddCompetitionViewController: UIViewController {
 	@IBAction func onGoButtonPress(_ sender: Any) {
 		var ref: DocumentReference!
 		ref = db.collection("test-competitions").addDocument(data: [
-			"compname": nameTextField.text
+			"compname": nameTextField.text,
+			"path": ""
 		]) { err in
 			if let err = err {
 				print("Error adding document: \(err)")

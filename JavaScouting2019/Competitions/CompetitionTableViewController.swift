@@ -68,11 +68,17 @@ class CompetitionTableViewController: UITableViewController {
 		switch identifier {
 		case "existingCompetitionToDetail":
 			let tab = segue.destination as! UITabBarController
-			let nav = tab.viewControllers?.first as! UINavigationController
-			let destination = nav.viewControllers.first as! TeamsViewController
+			
+			let nav1 = tab.viewControllers?.first as! UINavigationController
+			let destination1 = nav1.viewControllers.first as! TeamsViewController
 			let indexPath = tableView.indexPathForSelectedRow
 			let comp = self.competitions[indexPath!.row]
-			destination.path = comp.path + "teams/"
+			destination1.path = comp.path + "teams/"
+			
+			let nav2 = tab.viewControllers?.last as! UINavigationController
+			let destination2 = nav2.viewControllers.first as! MatchTableViewController
+			destination2.matchPath = comp.path + "matches/"
+			destination2.teamPath = comp.path + "teams/"
 		default:
 			print("unknown segue identifier")
 		}
