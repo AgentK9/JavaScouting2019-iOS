@@ -14,7 +14,7 @@ class AddCompetitionViewController: UIViewController {
 	@IBOutlet var navBar: UINavigationBar!
 	@IBOutlet var nameTextField: UITextField!
 	var db: Firestore!
-	var comp: Competition = Competition(compID: nil, compname: "", teams: [ScoutingTeam](), matches: nil)
+	var comp: Competition = Competition(compID: nil, compname: "", path: "", teams: nil)
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +50,6 @@ class AddCompetitionViewController: UIViewController {
 			let tab = segue.destination as! UITabBarController
 			let nav = tab.viewControllers?.first as! UINavigationController
 			let destination = nav.viewControllers.first as! TeamsViewController
-			destination.teams = self.comp.teams
 		default:
 			print("unknown segue identifier")
 		}

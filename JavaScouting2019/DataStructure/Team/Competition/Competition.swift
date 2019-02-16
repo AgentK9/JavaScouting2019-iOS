@@ -11,6 +11,6 @@ import Foundation
 struct Competition: Codable {
 	var compID: String?
 	var compname: String
+	var path: String
 	var teams: [ScoutingTeam]?
-	var matches: [Match]?
 }

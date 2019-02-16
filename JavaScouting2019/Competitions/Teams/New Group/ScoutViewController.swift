@@ -25,7 +25,7 @@ class ScoutViewController: UIViewController {
 	var isInitial: Bool!
 	var matchNum: Int!
 	var teamNum: Int!
-	var outScout: ScoutingData = ScoutingData(matchID: -1, land: false, sample: -1, claim: false, park: -1, depotMin: -1, landerMin: -1, endGame: -1)
+	var outScout: ScoutingData = ScoutingData(matchID: -1, land: false, sample: -1, claim: false, park: false, depotMin: -1, landerMin: -1, endGame: -1)
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,11 +87,9 @@ class ScoutViewController: UIViewController {
 	@IBAction func onParkChanged(_ sender: Any) {
 		switch park.selectedSegmentIndex {
 		case 0:
-			outScout.park = 0
+			outScout.park = true
 		case 1:
-			outScout.park = 1
-		case 2:
-			outScout.park = 2
+			outScout.park = false
 		default:
 			print("unknown selected park index")
 		}
