@@ -35,6 +35,25 @@ class FirebaseGrab {
 		
 	}
 	
+	func dlMatches(db: Firestore, path: String, completion: @escaping ([Match], Error?) -> Void) {
+		var matchArray = [Match]()
+		let query = db.collection(path)
+		query.getDocuments() { snapshot, error in
+			if let error = error {
+				print("Error downloading matches: \(error)")
+				completion(matchArray, error)
+				return
+			}
+			for doc in snapshot!.documents {
+				let match = self.parser.matchesParse(doc)
+				matchArray.append(match)
+			}
+			completion(matchArray, nil)
+			
+		}
+		
+	}
+	
 	func dlTeams(db: Firestore, path: String, completion: @escaping ([ScoutingTeam], Error?) -> Void) {
 		var teamArray = [ScoutingTeam]()
 		let query = db.collection(path)
