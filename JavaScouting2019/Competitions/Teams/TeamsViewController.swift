@@ -11,22 +11,24 @@ import Firebase
 import FirebaseAuth
 
 class TeamsViewController: UITableViewController {
-	
+	//MARK: - Variable Initialization
 	var teams: [ScoutingTeam] = [ScoutingTeam]()
 	var path: String = ""
 	let grabber = FirebaseGrab()
 	var db: Firestore!
-	
+	//MARK: - View handlers
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 	}
-	
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Teams"
 		refresh()
     }
-	
+	override func viewWillDisappear(_ animated: Bool) {
+		//Auth.auth().removeStateDidChangeListener(handle!)
+	}
+	//MARK: - Data
 	func refresh() {
 		if db != nil {
 			getTeams()
@@ -40,18 +42,18 @@ class TeamsViewController: UITableViewController {
 	func getTeams() {
 		grabber.dlTeams(db: db, path: path) {teamArray, error in
 			if let error = error {
+				print("\(error)")
 				return
 			}
 			self.teams = teamArray
 			self.tableView.reloadData()
 		}
 	}
-    
+	//MARK: - TableView Datasource/Delegate
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		let count = teams.count
         return count
     }
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "teamCell", for: indexPath)
 		let team = teams[indexPath.row]
@@ -59,7 +61,7 @@ class TeamsViewController: UITableViewController {
 		cell.detailTextLabel?.text = "\(team.teamNum)"
         return cell
     }
-	
+	//MARK: - Navigation
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		let identifier = segue.identifier
 		switch identifier {
@@ -77,7 +79,6 @@ class TeamsViewController: UITableViewController {
 			print("unknown segue identifier")
 		}
 	}
-	
 	@IBAction func unwindFromTeamInit(segue: UIStoryboardSegue) {
 	}
 	@IBAction func unwindFromTeamDetail(segue: UIStoryboardSegue) {
@@ -85,9 +86,7 @@ class TeamsViewController: UITableViewController {
 	@IBAction func unwindFromScoutingInit(segue: UIStoryboardSegue) {
 	}
 	
-	override func viewWillDisappear(_ animated: Bool) {
-		//Auth.auth().removeStateDidChangeListener(handle!)
-	}
+	
 	
 }
 

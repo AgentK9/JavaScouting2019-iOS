@@ -41,6 +41,7 @@ class NewTeamViewController: UIViewController {
 				return
 			}
 		}
+		toTeam.scouting = [ScoutingData]()
 		
 		db.document(path + "\(toTeam.teamNum)").setData(toTeam.dictionary)
 		

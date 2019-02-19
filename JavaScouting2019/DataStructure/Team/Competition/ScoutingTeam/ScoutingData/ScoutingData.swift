@@ -9,7 +9,7 @@
 import Foundation
 
 struct ScoutingData: Codable {
-	var matchID: Int?
+	var matchID: Int
 	var land: Bool
 	var sample: Int
 	var claim: Bool

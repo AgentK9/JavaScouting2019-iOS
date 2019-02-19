@@ -15,13 +15,30 @@ struct ScoutingTeam: Codable {
 	var bestScore: Int?
 	var latestScore: Int?
 	var path: String
-	var scouting: [ScoutingData]?
+	var scouting: [ScoutingData]
+	var compRecord: [Int]
 	
 	private func getListOf(type: String) -> [Int] {
 		var list: [Int] = [Int]()
 		
-		if scouting != nil {
-			for item in scouting! {
+		print(scouting)
+		if scouting.count > 1 {
+			let newScouting = scouting.filter({$0.matchID > 0})
+			for item in newScouting {
+				switch type {
+				case "auto":
+					list.append(item.autoPts())
+				case "tele":
+					list.append(item.teleOpPts())
+				case "end":
+					list.append(item.endGamePts())
+				case "total":
+					list.append(item.totalPts())
+				default:
+					print("unknown type")
+				}
+			}
+			for item in scouting {
 				switch type {
 				case "auto":
 					list.append(item.autoPts())
@@ -36,7 +53,22 @@ struct ScoutingTeam: Codable {
 				}
 			}
 		}
-		
+		else {
+			for item in scouting {
+				switch type {
+				case "auto":
+					list.append(item.autoPts())
+				case "tele":
+					list.append(item.teleOpPts())
+				case "end":
+					list.append(item.endGamePts())
+				case "total":
+					list.append(item.totalPts())
+				default:
+					print("unknown type")
+				}
+			}
+		}
 		return list
 	}
 	
@@ -48,7 +80,10 @@ struct ScoutingTeam: Codable {
 			total += item
 		}
 		
-		let average: Float = Float(total)/Float(list.count)
+		var average: Float = Float(total)/Float(list.count)
+		if average.isNaN {
+			average = 0
+		}
 		return average
 		
 	}
