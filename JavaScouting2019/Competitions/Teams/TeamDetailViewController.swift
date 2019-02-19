@@ -21,7 +21,6 @@ class TeamDetailViewController: UIViewController, UITableViewDelegate, UITableVi
 	@IBOutlet var totalLabel: UILabel!
 	//MARK: - Variable Init
 	var selectedTeam: ScoutingTeam?
-	var scouting: [ScoutingData] = [ScoutingData]()
 	var db: Firestore!
 	let grabber = FirebaseGrab()
 	var path: String!
@@ -30,7 +29,7 @@ class TeamDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         super.viewDidLoad()
 		
 		refreshLabels()
-		refresh()
+		//refresh()
 		navBar.topItem?.title = "\(selectedTeam!.teamName!) - \(selectedTeam!.teamNum)"
 		recordLabel.text = "Season Record: " + selectedTeam!.record!
 		
@@ -41,12 +40,10 @@ class TeamDetailViewController: UIViewController, UITableViewDelegate, UITableVi
 	//MARK: - Data Retriever
 	func refresh() {
 		if db != nil {
-			getScouting()
 		}
 		else {
 			print("database not initialized. initializing.")
 			db = Firestore.firestore()
-			getScouting()
 		}
 	}
 	func refreshLabels() {
@@ -55,29 +52,21 @@ class TeamDetailViewController: UIViewController, UITableViewDelegate, UITableVi
 		endGameLabel.text = "\(selectedTeam!.highScore(type: "end"))"
 		totalLabel.text = "\(selectedTeam!.highScore(type: "total"))"
 	}
-	func getScouting() {
-		let pathA = path + "scoutData/"
-		print(pathA)
-		grabber.dlScouts(db: db, path: pathA) {scoutArray, error in
-			if let error = error {
-				print("\(error)")
-				return
-			}
-			self.scouting = scoutArray
-			self.selectedTeam?.scouting = [ScoutingData]()
-			self.selectedTeam!.scouting = self.scouting
-			self.scoutingItemTable.reloadData()
-			self.refreshLabels()
-		}
-	}
 	//MARK: - TableView Source
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		let count = scouting.count
+		let count = selectedTeam!.scouting.count
 		return count
 	}
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "ItemScoutingCell", for: indexPath)
-		cell.textLabel?.text = "\(scouting[indexPath.row].claim)"
+		let item = selectedTeam!.scouting[indexPath.row]
+		cell.textLabel?.text = "\(item.totalPts())"
+		if item.matchID < 0 {
+			cell.detailTextLabel?.text = "Match \(item.matchID)"
+		}
+		else {
+			cell.detailTextLabel?.text = "Initital"
+		}
 		return cell
 	}
 	//MARK: - Navigation
@@ -88,12 +77,18 @@ class TeamDetailViewController: UIViewController, UITableViewDelegate, UITableVi
 			let destination = segue.destination as! InitScoutViewController
 			
 			destination.teamNum = self.selectedTeam?.teamNum
+			destination.path = self.path
+		case "unwindFromTeamDetail":
+			let destination = segue.destination as! TeamsViewController
 			
+			destination.refresh()
 		default:
 			print("unknown segue identifier")
 		}
     }
 	@IBAction func unwindFromScoutingInit(segue: UIStoryboardSegue) {
 	}
-
+	@IBAction func unwindFromScoutingDone(segue: UIStoryboardSegue) {
+		refresh()
+	}
 }

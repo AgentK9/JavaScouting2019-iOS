@@ -40,6 +40,7 @@ class FirebaseParse {
 		print("got team")
 		return team
 	}
+	/*
 	func scoutParse(_ scoutDoc: DocumentSnapshot) -> ScoutingData {
 		let scoutData = scoutDoc.data()
 		var scout: ScoutingData!
@@ -48,5 +49,5 @@ class FirebaseParse {
 			scout = try! JSONDecoder().decode(ScoutingData.self, from: newScout)
 		}
 		return scout
-	}
+	}*/
 }
