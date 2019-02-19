@@ -19,6 +19,8 @@ class CompetitionTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		
+		self.title = "Competitions"
+		
 		refresh()
 	}
 	
@@ -68,14 +70,15 @@ class CompetitionTableViewController: UITableViewController {
 		switch identifier {
 		case "existingCompetitionToDetail":
 			let tab = segue.destination as! UITabBarController
+			let vcs = tab.viewControllers!
 			
-			let nav1 = tab.viewControllers?.first as! UINavigationController
+			let nav1 = vcs[0] as! UINavigationController
 			let destination1 = nav1.viewControllers.first as! TeamsViewController
 			let indexPath = tableView.indexPathForSelectedRow
 			let comp = self.competitions[indexPath!.row]
 			destination1.path = comp.path + "teams/"
 			
-			let nav2 = tab.viewControllers?.last as! UINavigationController
+			let nav2 = vcs[1] as! UINavigationController
 			let destination2 = nav2.viewControllers.first as! MatchTableViewController
 			destination2.matchPath = comp.path + "matches/"
 			destination2.teamPath = comp.path + "teams/"
@@ -86,5 +89,6 @@ class CompetitionTableViewController: UITableViewController {
 	
 	@IBAction func unwindFromCompDetail(segue: UIStoryboardSegue) {
 	}
-    
+	@IBAction func unwindFromCompAdd(segue: UIStoryboardSegue) {
+	}
 }

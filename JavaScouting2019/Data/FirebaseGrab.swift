@@ -10,6 +10,7 @@ import Foundation
 import Firebase
 
 class FirebaseGrab {
+	
 	let parser = FirebaseParse()
 	var competitions: [Competition] = [Competition]()
 	
@@ -64,10 +65,10 @@ class FirebaseGrab {
 				return
 			}
 			for doc in snapshot!.documents {
-				print("getting scouts for team")
 				var team = self.parser.teamsParse(doc)
-				let pathA = path + "teams/\(doc.documentID)/scoutData/"
+				let pathA = path + "\(doc.documentID)/"
 				team.path = pathA
+				print("dlTeam.scouting = \(team.scouting)")
 				teamArray.append(team)
 			}
 			completion(teamArray, nil)
@@ -76,6 +77,7 @@ class FirebaseGrab {
 			
 	}
 	
+	/*
 	func dlScouts(db: Firestore, path: String, completion: @escaping ([ScoutingData], Error?) -> Void) {
 		var scoutArray = [ScoutingData]()
 		let query = db.collection(path)
@@ -93,6 +95,6 @@ class FirebaseGrab {
 			
 		}
 		
-	}
+	}*/
 		
 }

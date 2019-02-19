@@ -21,7 +21,7 @@ class FirebaseData {
 		if db != nil {
 			getCompetitions()
 			getTeams()
-			getScouts()
+			//getScouts()
 		}
 		else {
 			print("database not initialized. Initializing.")
@@ -52,13 +52,14 @@ class FirebaseData {
 				}
 				self.competitions[j].teams = teamArray
 				if i == self.competitions.count - 1 {
-					self.getScouts()
+					//self.getScouts()
 				}
 				print("comps are: \(self.competitions)")
 			}
 			i += 1
 		}
 	}
+	/*
 	func getScouts() {
 		var i = 0
 		for comp in competitions {
@@ -77,5 +78,5 @@ class FirebaseData {
 			}
 			i += 1
 		}
-	}
+	}*/
 }

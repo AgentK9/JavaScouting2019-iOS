@@ -20,6 +20,7 @@ class InitScoutViewController: UIViewController {
 	var matchNum: Int!
 	var teamNum: Int!
 	var comp: String!
+	var path: String!
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,6 +92,7 @@ class InitScoutViewController: UIViewController {
 			destination.isInitial = self.isInitial
 			destination.matchNum = self.matchNum
 			destination.teamNum = self.teamNum
+			destination.path = self.path
 			
 		default:
 			print("Unrecognized segue identifier")

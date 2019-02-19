@@ -16,11 +16,16 @@ class MatchTableViewController: UITableViewController {
 	var db: Firestore!
 	let grabber = FirebaseGrab()
 	var matches: [Match] = [Match]()
+	var data: FirebaseData = FirebaseData()
 	//MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
 		self.title = "Matches"
+		
 		refresh()
+		
+		self.tableView.dataSource = self
+		self.tableView.delegate = self
     }
 	//MARK: - Data
 	func refresh() {
@@ -52,7 +57,7 @@ class MatchTableViewController: UITableViewController {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "matchCell", for: indexPath)
 		let match = matches[indexPath.row]
 		cell.detailTextLabel?.text = "\(match.matchNum)"
-		let teamText = "\(match.redTeams[0]), \(match.redTeams[1]) - \(match.blueTeams[0]), \(match.blueTeams[1])"
+		let teamText = "\(match.redTeams[0]), \(match.redTeams[1]) - \(match.blueTeams[0]), \(match.blueTeams[1]) - Winner: \(match.getWinner(teams: data.competitions[0].teams))"
 		cell.textLabel?.text = teamText
 		return cell
 	}
@@ -65,12 +70,19 @@ class MatchTableViewController: UITableViewController {
 			destination.matchPath = self.matchPath
 			destination.teamPath = self.teamPath
 			destination.matchNum = self.tableView.numberOfRows(inSection: 0) + 1
+		case "matchTableToDetail":
+			let destination = segue.destination as! MatchDetailViewController
+			let index = tableView.indexPathForSelectedRow!
+			destination.selectedMatch = self.matches[index.row]
+			destination.matchPath = self.matchPath + "\(matches[index.row].matchNum)"
+			destination.teamPath = self.teamPath
 		default:
 			print("unknown segue identifier")
 		}
 	}
 	@IBAction func unwindFromNewMatch(segue: UIStoryboardSegue)  {
-		
+	}
+	@IBAction func unwindFromMatchDetail(segue: UIStoryboardSegue)  {
 	}
 
 
