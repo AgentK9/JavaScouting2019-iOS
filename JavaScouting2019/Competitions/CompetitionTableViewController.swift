@@ -82,6 +82,12 @@ class CompetitionTableViewController: UITableViewController {
 			let destination2 = nav2.viewControllers.first as! MatchTableViewController
 			destination2.matchPath = comp.path + "matches/"
 			destination2.teamPath = comp.path + "teams/"
+			
+			let nav3 = vcs[2] as! UINavigationController
+			let destination3 = nav3.viewControllers.first as! AnalysisViewController
+			destination3.matchPath = comp.path + "matches/"
+			destination3.teamPath = comp.path + "teams/"
+			
 		default:
 			print("unknown segue identifier")
 		}

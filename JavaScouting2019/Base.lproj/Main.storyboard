@@ -1306,6 +1306,9 @@
                                     <segment title="Actual RP, TBP"/>
                                     <segment title="AI-Ranked"/>
                                 </segments>
+                                <connections>
+                                    <action selector="onRankTypeChange:" destination="CK3-wo-jLc" eventType="valueChanged" id="rI6-ia-4Qr"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1323,6 +1326,7 @@
                     <navigationItem key="navigationItem" id="OoU-uG-Ywb"/>
                     <connections>
                         <outlet property="tableView" destination="PvM-Hp-8VK" id="c5l-VL-aBr"/>
+                        <outlet property="typeOfRank" destination="tOU-XO-Ps5" id="uj8-lX-AqF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j8W-0T-RFg" userLabel="First Responder" sceneMemberID="firstResponder"/>
