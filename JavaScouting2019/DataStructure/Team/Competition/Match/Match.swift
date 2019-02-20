@@ -13,6 +13,10 @@ struct Match: Codable {
 	var redTeams: [Int]
 	var blueTeams: [Int]
 	
+	func teams() -> [Int] {
+		let array = redTeams + blueTeams
+		return array
+	}
 	func getScore(color: String, teams: [ScoutingTeam]?) -> Float {
 		var score: Float = 0
 		if teams != nil {
@@ -20,7 +24,12 @@ struct Match: Codable {
 			case "red":
 				for num in redTeams {
 					let team = teams!.first(where: {$0.teamNum == num})
-					score += team?.avgScore(type: "total") ?? 0
+					if let matchScore = team?.scouting.first(where: {$0.matchID == self.matchNum}) {
+						score += Float(matchScore.totalPts())
+					}
+					else {
+						score += team?.avgScore(type: "total") ?? 0
+					}
 					if score == 0 {
 						print("could not find data on team \(num)")
 					}
@@ -28,7 +37,12 @@ struct Match: Codable {
 			case "blue":
 				for num in blueTeams {
 					let team = teams!.first(where: {$0.teamNum == num})
-					score += team?.avgScore(type: "total") ?? 0
+					if let matchScore = team?.scouting.first(where: {$0.matchID == self.matchNum}) {
+						score += Float(matchScore.totalPts())
+					}
+					else {
+						score += team?.avgScore(type: "total") ?? 0
+					}
 					if score == 0 {
 						print("could not find data on team \(num)")
 					}
