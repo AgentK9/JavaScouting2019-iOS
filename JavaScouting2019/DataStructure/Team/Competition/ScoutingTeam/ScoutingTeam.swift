@@ -17,6 +17,8 @@ struct ScoutingTeam: Codable {
 	var path: String
 	var scouting: [ScoutingData]
 	var compRecord: [Int]
+	var QP: Int?
+	var TBP: Float?
 	
 	private func getListOf(type: String) -> [Int] {
 		var list: [Int] = [Int]()
