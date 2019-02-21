@@ -13,8 +13,8 @@ struct TeamAnalysisList {
 	var matches: [Match]
 	
 	
-	private func getTeamIndexByNumber(_ lteams: [ScoutingTeam], number: Int) -> Int {
-		let index = lteams.firstIndex(where: {$0.teamNum == number})!
+	private func getTeamIndexByNumber(_ lteams: [ScoutingTeam], number: Int) -> Int? {
+		let index = lteams.firstIndex(where: {$0.teamNum == number})
 		return index
 	}
 	
@@ -23,48 +23,57 @@ struct TeamAnalysisList {
 		var rankedTeams = [ScoutingTeam]()
 		for match in matches {
 			let results = match.getMatchResults(teams: localTeams)
+			var matchTeams = [ScoutingTeam]()
 			
 			for team in match.redTeams {
-				let index = getTeamIndexByNumber(localTeams, number: team)
-				var scteam = localTeams[index]
+				let index = getTeamIndexByNumber(localTeams, number: team)!
 
-				if scteam.QP == nil {
-					scteam.QP = 0
+				if localTeams[index].QP == nil {
+					localTeams[index].QP = 0
 				}
 				if results["result"] as! String == "Red" {
-					scteam.QP! += 2
+					localTeams[index].QP! += 2
 				}
 				else if results["result"] as! String == "Tie" {
-					scteam.QP! += 1
+					localTeams[index].QP! += 1
 				}
 				
-				if scteam.TBP == nil {
-					scteam.TBP = 0
+				if localTeams[index].TBP == nil {
+					localTeams[index].TBP = 0
 				}
-				scteam.TBP! += results["blue"] as! Float
+				localTeams[index].TBP! += results["blue"] as! Float
 				
-				rankedTeams.append(scteam)
+				matchTeams.append(localTeams[index])
 			}
 			for team in match.blueTeams {
-				let index = getTeamIndexByNumber(localTeams, number: team)
-				var scteam = teams[index]
+				let index = getTeamIndexByNumber(localTeams, number: team)!
 				
-				if scteam.QP == nil {
-					scteam.QP = 0
+				if localTeams[index].QP == nil {
+					print("QP is nil")
+					localTeams[index].QP = 0
 				}
 				if results["result"] as! String == "Blue" {
-					scteam.QP! += 2
+					localTeams[index].QP! += 2
 				}
 				else if results["result"] as! String == "Tie" {
-					scteam.QP! += 1
+					localTeams[index].QP! += 1
 				}
 				
-				if scteam.TBP == nil {
-					scteam.TBP = 0
+				if localTeams[index].TBP == nil {
+					localTeams[index].TBP = 0
 				}
-				scteam.TBP! += results["red"] as! Float
+				localTeams[index].TBP! += results["red"] as! Float
 		
-				rankedTeams.append(scteam)
+				matchTeams.append(localTeams[index])
+			}
+			
+			for team in matchTeams {
+				if let index = getTeamIndexByNumber(rankedTeams, number: team.teamNum) {
+					rankedTeams[index] = team
+				}
+				else {
+					rankedTeams.append(team)
+				}
 			}
 		}
 		
