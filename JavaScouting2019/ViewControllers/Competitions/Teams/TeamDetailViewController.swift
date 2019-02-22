@@ -99,10 +99,18 @@ class TeamDetailViewController: UIViewController, UITableViewDelegate, UITableVi
 			let index = self.scoutingItemTable.indexPathForSelectedRow
 			let scoutingItem = self.selectedTeam!.scouting[index!.row]
 			destination.editScout = true
-			destination.outScout =
+			destination.outScout = scoutingItem
+			if scoutingItem.matchID == 0 {
+				destination.isInitial = false
+			}
+			else {
+				destination.isInitial = true
+			}
+			destination.matchNum = scoutingItem.matchID
+			destination.path = self.path + ".scouting.\(scoutingItem.matchID)"
+			destination.teamNum = self.selectedTeam!.teamNum
 		case "unwindFromTeamDetail":
 			let destination = segue.destination as! TeamsViewController
-			
 			destination.refresh()
 		default:
 			print("unknown segue identifier")
