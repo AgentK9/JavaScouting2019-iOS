@@ -9,6 +9,7 @@ target 'JavaScouting2019' do
   pod 'Firebase/Core'
   pod 'Firebase/Firestore'
   pod 'Firebase/Auth'
+  pod 'Firebase/MLModelInterpreter'
   pod 'MaterialComponents'
 
 end
