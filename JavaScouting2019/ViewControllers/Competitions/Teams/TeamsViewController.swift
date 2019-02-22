@@ -49,6 +49,10 @@ class TeamsViewController: UITableViewController {
 			self.tableView.reloadData()
 		}
 	}
+	//MARK: - Button Functions
+	@IBAction func refreshButton(_ sender: Any) {
+		refresh()
+	}
 	//MARK: - TableView Datasource/Delegate
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		let count = teams.count

@@ -189,13 +189,13 @@
 		0A033C0322139C8400C27068 /* Competitions */ = {
 			isa = PBXGroup;
 			children = (
-				0A45DDB0221BB19200AE5303 /* Analysis */,
-				0A033C0D22139E4F00C27068 /* Matches */,
-				0A8AA2F52200089100E24F01 /* Teams */,
 				0A033C0922139E0B00C27068 /* AddCompetitionViewController.swift */,
 				0A033C0522139DE700C27068 /* CompetitionTableViewController.swift */,
 				0A033C0622139DE700C27068 /* CompetitionTableViewController.xib */,
 				0A033C0A22139E0B00C27068 /* AddCompetitionViewController.xib */,
+				0A8AA2F52200089100E24F01 /* Teams */,
+				0A033C0D22139E4F00C27068 /* Matches */,
+				0A45DDB0221BB19200AE5303 /* Analysis */,
 			);
 			path = Competitions;
 			sourceTree = "<group>";
@@ -228,6 +228,7 @@
 		0A4444372217502D00F8D987 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				0A033BE622126D9200C27068 /* DataStructure */,
 				0A033C0E2213B5B900C27068 /* TOAGrab.swift */,
 				0A44442B2215FAE200F8D987 /* FirebaseParse.swift */,
 				0A44443322165DF600F8D987 /* FirebaseGrab.swift */,
@@ -244,6 +245,15 @@
 				0A45DDB2221BB33C00AE5303 /* AnalysisViewController.xib */,
 			);
 			path = Analysis;
+			sourceTree = "<group>";
+		};
+		0A45DDB7221F9A6900AE5303 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				0A033BFA22138F5600C27068 /* Onboarding */,
+				0A033C0322139C8400C27068 /* Competitions */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		0A8AA2F52200089100E24F01 /* Teams */ = {
@@ -282,14 +292,12 @@
 			isa = PBXGroup;
 			children = (
 				0AEC5C2E21F54F73006CEE45 /* Info.plist */,
-				0A033BFA22138F5600C27068 /* Onboarding */,
-				0A033BE622126D9200C27068 /* DataStructure */,
-				0A033C0322139C8400C27068 /* Competitions */,
 				0AEC5C2621F54F71006CEE45 /* Main.storyboard */,
 				0AEC5C2921F54F73006CEE45 /* Assets.xcassets */,
 				0AEC5C2B21F54F73006CEE45 /* LaunchScreen.storyboard */,
-				0A4444372217502D00F8D987 /* Data */,
 				0AEC5C2021F54F71006CEE45 /* AppDelegate.swift */,
+				0A45DDB7221F9A6900AE5303 /* ViewControllers */,
+				0A4444372217502D00F8D987 /* Data */,
 			);
 			path = JavaScouting2019;
 			sourceTree = "<group>";
