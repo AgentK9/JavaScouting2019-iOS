@@ -69,11 +69,12 @@ class AnalysisViewController: UIViewController, UITableViewDataSource, UITableVi
 		}
 	}
 	func refreshSorting() {
+		tableTeams = [ScoutingTeam]()
 		if teams != nil && matches != nil {
 			matchAnalysis = TeamAnalysisList(teams: teams, matches: matches)
 			switch typeOfRank.selectedSegmentIndex {
 			case 1:
-				print("yeet")
+				tableTeams = matchAnalysis.getActual()
 			case 2:
 				print("yeet")
 			default:
@@ -85,6 +86,9 @@ class AnalysisViewController: UIViewController, UITableViewDataSource, UITableVi
 	//MARK: - Storyboard functions
 	@IBAction func onRankTypeChange(_ sender: Any) {
 		refreshSorting()
+	}
+	@IBAction func refreshButton(_ sender: Any) {
+		refresh()
 	}
 	//MARK: - TableView Datasource/Delegate
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

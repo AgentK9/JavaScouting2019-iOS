@@ -15,6 +15,7 @@ class AddCompetitionViewController: UIViewController {
 	@IBOutlet var nameTextField: UITextField!
 	var db: Firestore!
 	var comp: Competition = Competition(compID: nil, compname: "", path: "", teams: nil)
+	var path = "test-competitions/"
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,9 +27,9 @@ class AddCompetitionViewController: UIViewController {
 
 	@IBAction func onGoButtonPress(_ sender: Any) {
 		var ref: DocumentReference!
-		ref = db.collection("test-competitions").addDocument(data: [
-			"compname": nameTextField.text,
-			"path": ""
+		ref = db.collection("/test-competitions/").addDocument(data: [
+			"compname": nameTextField.text as Any,
+			"path": "/test-competitions/"
 		]) { err in
 			if let err = err {
 				print("Error adding document: \(err)")
@@ -38,6 +39,7 @@ class AddCompetitionViewController: UIViewController {
 				self.comp.compname = self.nameTextField.text!
 			}
 		}
+		path += ref!.documentID + "/"
 	}
 	
     // MARK: - Navigation
@@ -49,8 +51,21 @@ class AddCompetitionViewController: UIViewController {
 		switch identifier {
 		case "newCompToDetail":
 			let tab = segue.destination as! UITabBarController
-			let nav = tab.viewControllers?.first as! UINavigationController
-			let destination = nav.viewControllers.first as! TeamsViewController
+			let vcs = tab.viewControllers!
+			
+			let nav1 = vcs[0] as! UINavigationController
+			let destination1 = nav1.viewControllers.first as! TeamsViewController
+			destination1.path = path + "teams/"
+			
+			let nav2 = vcs[1] as! UINavigationController
+			let destination2 = nav2.viewControllers.first as! MatchTableViewController
+			destination2.matchPath = path + "matches/"
+			destination2.teamPath = path + "teams/"
+			
+			let nav3 = vcs[2] as! UINavigationController
+			let destination3 = nav3.viewControllers.first as! AnalysisViewController
+			destination3.matchPath = path + "matches/"
+			destination3.teamPath = path + "teams/"
 		default:
 			print("unknown segue identifier")
 		}

@@ -44,7 +44,10 @@ class CompetitionTableViewController: UITableViewController {
 		}
 	}
 
-
+	@IBAction func refreshButton(_ sender: Any) {
+		refresh()
+	}
+	
     // MARK: - Table view data source
 
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -94,6 +97,7 @@ class CompetitionTableViewController: UITableViewController {
     }
 	
 	@IBAction func unwindFromCompDetail(segue: UIStoryboardSegue) {
+		refresh()
 	}
 	@IBAction func unwindFromCompAdd(segue: UIStoryboardSegue) {
 	}
