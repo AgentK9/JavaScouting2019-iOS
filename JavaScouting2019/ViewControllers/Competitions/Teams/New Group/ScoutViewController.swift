@@ -53,6 +53,8 @@ class ScoutViewController: UIViewController {
 		
 		if editScout {
 			initEdit()
+			depotMinLabel.text = "\(Int(depotMinStep.value))"
+			landerMinLabel.text = "\(Int(landerMinStep.value))"
 		}
 		
 
@@ -187,7 +189,13 @@ class ScoutViewController: UIViewController {
 		switch identifier {
 		case "unwindFromScout":
 			getOutScout()
-			db.document(path).updateData(["scouting": [outScout.dictionary]])
+			if editScout {
+				db.document(path).updateData(["scouting": FieldValue.arrayRemove(["\(matchNum!)"])])
+				db.document(path).updateData(["scouting": FieldValue.arrayUnion([outScout.dictionary])])
+			}
+			else {
+				db.document(path).updateData(["scouting": FieldValue.arrayUnion([outScout.dictionary])])
+			}
 			let destination = segue.destination as! TeamDetailViewController
 			destination.refresh()
 			

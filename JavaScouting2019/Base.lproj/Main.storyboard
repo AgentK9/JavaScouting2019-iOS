@@ -161,7 +161,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="iCY-ZS-c7u" kind="showDetail" id="JWx-SY-WF8"/>
+                                            <segue destination="iCY-ZS-c7u" kind="showDetail" identifier="teamToScoutDetail" id="JWx-SY-WF8"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -525,7 +525,11 @@
                                 <viewLayoutGuide key="safeArea" id="YCq-je-r5k"/>
                                 <items>
                                     <navigationItem title="Title" id="pPC-yY-TW8">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" id="HpV-oQ-gLR"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="HpV-oQ-gLR">
+                                            <connections>
+                                                <segue destination="Kgq-ds-Bu1" kind="unwind" unwindAction="unwindFromScoutingDetailWithSegue:" id="1Ug-8S-Pz1"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>

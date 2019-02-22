@@ -73,11 +73,11 @@ class TeamDetailViewController: UIViewController, UITableViewDelegate, UITableVi
 		let cell = tableView.dequeueReusableCell(withIdentifier: "ItemScoutingCell", for: indexPath)
 		let item = selectedTeam!.scouting[indexPath.row]
 		cell.textLabel?.text = "\(item.totalPts())"
-		if item.matchID < 0 {
+		if item.matchID > 0 {
 			cell.detailTextLabel?.text = "Match \(item.matchID)"
 		}
 		else {
-			cell.detailTextLabel?.text = "Initital"
+			cell.detailTextLabel?.text = "Initial"
 		}
 		return cell
 	}
@@ -92,7 +92,7 @@ class TeamDetailViewController: UIViewController, UITableViewDelegate, UITableVi
 		case "detailToNewScout":
 			let destination = segue.destination as! InitScoutViewController
 			
-			destination.teamNum = self.selectedTeam?.teamNum
+			destination.teamNum = self.selectedTeam!.teamNum
 			destination.path = self.path
 		case "teamToScoutDetail":
 			let destination = segue.destination as! ScoutViewController
@@ -101,13 +101,13 @@ class TeamDetailViewController: UIViewController, UITableViewDelegate, UITableVi
 			destination.editScout = true
 			destination.outScout = scoutingItem
 			if scoutingItem.matchID == 0 {
-				destination.isInitial = false
-			}
-			else {
 				destination.isInitial = true
 			}
+			else {
+				destination.isInitial = false
+			}
 			destination.matchNum = scoutingItem.matchID
-			destination.path = self.path + ".scouting.\(scoutingItem.matchID)"
+			destination.path = self.path.dropLast() + ".scouting.\(scoutingItem.matchID)"
 			destination.teamNum = self.selectedTeam!.teamNum
 		case "unwindFromTeamDetail":
 			let destination = segue.destination as! TeamsViewController
@@ -117,6 +117,8 @@ class TeamDetailViewController: UIViewController, UITableViewDelegate, UITableVi
 		}
     }
 	@IBAction func unwindFromScoutingInit(segue: UIStoryboardSegue) {
+	}
+	@IBAction func unwindFromScoutingDetail(segue: UIStoryboardSegue) {
 	}
 	@IBAction func unwindFromScoutingDone(segue: UIStoryboardSegue) {
 		refresh()
