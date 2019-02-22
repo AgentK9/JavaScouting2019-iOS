@@ -87,6 +87,9 @@ class AnalysisViewController: UIViewController, UITableViewDataSource, UITableVi
 	@IBAction func onRankTypeChange(_ sender: Any) {
 		refreshSorting()
 	}
+	@IBAction func refreshButton(_ sender: Any) {
+		refresh()
+	}
 	//MARK: - TableView Datasource/Delegate
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		let count = tableTeams.count

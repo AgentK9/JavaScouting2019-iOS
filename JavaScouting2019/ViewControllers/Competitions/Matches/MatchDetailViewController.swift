@@ -63,17 +63,6 @@ class MatchDetailViewController: UIViewController {
 			self.refreshLabels()
 		}
 	}
-	/*
-	private func getScouting() {
-		for team in teams {
-			grabber.dlScouts(db: db, path: team.path) {scoutArray, error in
-				if let error = error {
-					print("\(error)")
-					return
-				}
-			}
-		}
-	}*/
 	private func refreshTeams() {
 		if matchTeams.count == 0 {
 			matchTeams.append(teams.first(where: {$0.teamNum == selectedMatch.redTeams[0]})!)
@@ -115,8 +104,10 @@ class MatchDetailViewController: UIViewController {
 		}
 	}
 
-
-    // MARK: - Navigation
+	@IBAction func refreshButton(_ sender: Any) {
+		refresh()
+	}
+	// MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		
     }

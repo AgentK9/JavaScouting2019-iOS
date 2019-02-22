@@ -55,7 +55,7 @@
                     <navigationItem key="navigationItem" id="J5L-z6-7kY">
                         <barButtonItem key="leftBarButtonItem" title="Back" id="zED-qI-ctA">
                             <connections>
-                                <segue destination="mIh-aC-Wqo" kind="unwind" unwindAction="unwindFromCompDetailWithSegue:" id="VP7-eF-eGY"/>
+                                <segue destination="mIh-aC-Wqo" kind="unwind" identifier="unwindFromCompDetail" unwindAction="unwindFromCompDetailWithSegue:" id="VP7-eF-eGY"/>
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
@@ -64,7 +64,11 @@
                                     <segue destination="TeM-dh-ZuB" kind="showDetail" identifier="teamsToNew" id="x2h-F2-j6X"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem systemItem="refresh" id="NNP-jc-YHD"/>
+                            <barButtonItem systemItem="refresh" id="NNP-jc-YHD">
+                                <connections>
+                                    <action selector="refreshButton:" destination="RsF-TM-PbV" id="KHg-L5-wVR"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                 </tableViewController>
@@ -257,7 +261,11 @@
                                         </barButtonItem>
                                         <rightBarButtonItems>
                                             <barButtonItem systemItem="edit" id="7NW-Xy-Mcf"/>
-                                            <barButtonItem systemItem="refresh" id="W1l-Is-eHg"/>
+                                            <barButtonItem systemItem="refresh" id="W1l-Is-eHg">
+                                                <connections>
+                                                    <action selector="refreshButton:" destination="Kd3-50-q8S" id="ef4-iR-dTq"/>
+                                                </connections>
+                                            </barButtonItem>
                                         </rightBarButtonItems>
                                     </navigationItem>
                                 </items>
@@ -691,7 +699,7 @@
                     <navigationItem key="navigationItem" id="a6k-mS-8xf">
                         <barButtonItem key="leftBarButtonItem" title="Back" id="UZH-Pq-iEh">
                             <connections>
-                                <segue destination="yYV-8m-rGc" kind="unwind" unwindAction="unwindFromCompDetailWithSegue:" id="Osx-9w-Yjz"/>
+                                <segue destination="yYV-8m-rGc" kind="unwind" identifier="unwindFromCompDetail" unwindAction="unwindFromCompDetailWithSegue:" id="YSp-1w-pFh"/>
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
@@ -700,7 +708,11 @@
                                     <segue destination="gxu-JT-oCp" kind="showDetail" identifier="newMatchSegue" id="cjZ-w4-BAA"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem systemItem="refresh" id="0Hk-io-G20"/>
+                            <barButtonItem systemItem="refresh" id="0Hk-io-G20">
+                                <connections>
+                                    <action selector="refreshButton:" destination="sb7-Ur-SM1" id="blo-z7-Nut"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                 </tableViewController>
@@ -1104,7 +1116,11 @@
                                     <segue destination="U41-wV-ckv" kind="showDetail" id="FNS-0a-AoN"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem systemItem="refresh" id="kCh-fl-ThQ"/>
+                            <barButtonItem systemItem="refresh" id="kCh-fl-ThQ">
+                                <connections>
+                                    <action selector="refreshButton:" destination="1LR-HP-L7h" id="65Q-Mc-Aw0"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                 </tableViewController>
@@ -1323,13 +1339,25 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pw0-D3-8Ge"/>
                     </view>
-                    <navigationItem key="navigationItem" id="OoU-uG-Ywb"/>
+                    <navigationItem key="navigationItem" id="OoU-uG-Ywb">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="Ra4-Ln-cyz">
+                            <connections>
+                                <segue destination="72O-T5-Zn3" kind="unwind" identifier="unwindFromCompDetail" unwindAction="unwindFromCompDetailWithSegue:" id="MuR-Pi-SZh"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="5E0-I9-yrU">
+                            <connections>
+                                <action selector="refreshButton:" destination="CK3-wo-jLc" id="pTm-EB-LW8"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="PvM-Hp-8VK" id="c5l-VL-aBr"/>
                         <outlet property="typeOfRank" destination="tOU-XO-Ps5" id="uj8-lX-AqF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j8W-0T-RFg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="72O-T5-Zn3" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1540" y="1093"/>
         </scene>
@@ -1338,7 +1366,7 @@
         <image name="ic_settings.png" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="7ez-AI-K2j"/>
+        <segue reference="1Ky-D0-5uG"/>
         <segue reference="JWx-SY-WF8"/>
         <segue reference="V0N-1M-JXZ"/>
         <segue reference="CKH-ba-50m"/>

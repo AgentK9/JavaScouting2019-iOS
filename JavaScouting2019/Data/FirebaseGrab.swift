@@ -49,7 +49,7 @@ class FirebaseGrab {
 				let match = self.parser.matchesParse(doc)
 				matchArray.append(match)
 			}
-			matchArray.sort(by: {$0.matchNum < $1.matchNum})
+			matchArray.sort(by: {$0.matchNum > $1.matchNum})
 			completion(matchArray, nil)
 			
 		}
