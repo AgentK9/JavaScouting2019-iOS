@@ -92,6 +92,7 @@ class InitScoutViewController: UIViewController {
 			destination.isInitial = self.isInitial
 			destination.matchNum = self.matchNum
 			destination.teamNum = self.teamNum
+			destination.editScout = false
 			destination.path = self.path
 			
 		default:

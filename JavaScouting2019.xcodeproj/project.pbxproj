@@ -259,12 +259,12 @@
 		0A8AA2F52200089100E24F01 /* Teams */ = {
 			isa = PBXGroup;
 			children = (
-				0A033C0422139CBF00C27068 /* Scouting */,
 				0AEC5C2221F54F71006CEE45 /* TeamsViewController.swift */,
 				0A8AA2FE220008D800E24F01 /* TeamDetailViewController.swift */,
 				0A033C102213C8A600C27068 /* NewTeamViewController.swift */,
 				0A033C112213C8A600C27068 /* NewTeamViewController.xib */,
 				0A8AA2FF220008D800E24F01 /* TeamDetailViewController.xib */,
+				0A033C0422139CBF00C27068 /* Scouting */,
 			);
 			path = Teams;
 			sourceTree = "<group>";

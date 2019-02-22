@@ -101,7 +101,11 @@
                                                     <segue destination="OZM-4C-KdW" kind="showDetail" identifier="detailToNewScout" id="n7h-Jd-DmQ"/>
                                                 </connections>
                                             </barButtonItem>
-                                            <barButtonItem systemItem="refresh" id="Xag-Uy-yec"/>
+                                            <barButtonItem systemItem="refresh" id="Xag-Uy-yec">
+                                                <connections>
+                                                    <action selector="refreshButton:" destination="rdD-ua-vfq" id="NZr-Qe-Sp2"/>
+                                                </connections>
+                                            </barButtonItem>
                                         </rightBarButtonItems>
                                     </navigationItem>
                                 </items>
@@ -520,7 +524,9 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <viewLayoutGuide key="safeArea" id="YCq-je-r5k"/>
                                 <items>
-                                    <navigationItem title="Title" id="pPC-yY-TW8"/>
+                                    <navigationItem title="Title" id="pPC-yY-TW8">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" id="HpV-oQ-gLR"/>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RRk-Dx-IPw">
@@ -1368,7 +1374,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="1Ky-D0-5uG"/>
         <segue reference="JWx-SY-WF8"/>
-        <segue reference="V0N-1M-JXZ"/>
+        <segue reference="kFf-Q4-CQA"/>
         <segue reference="CKH-ba-50m"/>
     </inferredMetricsTieBreakers>
 </document>

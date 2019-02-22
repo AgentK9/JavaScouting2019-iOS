@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 
 class ScoutViewController: UIViewController {
-	
+	//MARK: - Storyboard Outlets
 	@IBOutlet var navBar: UINavigationBar!
 	@IBOutlet var land: UISegmentedControl!
 	@IBOutlet var sample: UISegmentedControl!
@@ -21,14 +21,15 @@ class ScoutViewController: UIViewController {
 	@IBOutlet var landerMinLabel: UILabel!
 	@IBOutlet var landerMinStep: UIStepper!
 	@IBOutlet var endGame: UISegmentedControl!
-	
+	//MARK: - Variable Initialization
 	var isInitial: Bool!
 	var matchNum: Int!
 	var teamNum: Int!
 	var outScout: ScoutingData = ScoutingData(matchID: -1, land: false, sample: -1, claim: false, park: false, depotMin: -1, landerMin: -1, endGame: -1)
 	var path: String!
 	var db: Firestore!
-	
+	var editScout: Bool!
+	//MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
 		
@@ -50,10 +51,58 @@ class ScoutViewController: UIViewController {
 		
 		db = Firestore.firestore()
 		
+		if editScout {
+			initEdit()
+		}
+		
 
         // Do any additional setup after loading the view.
     }
-	
+	//MARK: - Storyboard Refresh
+	func initEdit() {
+		
+		switch outScout.land {
+		case true: land.selectedSegmentIndex = 0
+		case false: land.selectedSegmentIndex = 1
+		default:
+			print("unrecognized land value")
+		}
+		
+		switch outScout.sample {
+		case 0: sample.selectedSegmentIndex = 0
+		case 1: sample.selectedSegmentIndex = 1
+		case 2: sample.selectedSegmentIndex = 2
+		case 3: sample.selectedSegmentIndex = 3
+		default:
+			print("unknown sample value")
+		}
+		
+		switch outScout.claim {
+		case true: claim.selectedSegmentIndex = 0
+		case false: claim.selectedSegmentIndex = 1
+		default:
+			print("unknown selected claim index")
+		}
+		
+		switch outScout.park {
+		case true: park.selectedSegmentIndex = 0
+		case false: park.selectedSegmentIndex = 1
+		default:
+			print("unknown selected park index")
+		}
+		
+		depotMinStep.value = Double(outScout.depotMin)
+		landerMinStep.value = Double(outScout.landerMin)
+		
+		switch outScout.endGame {
+		case 0: endGame.selectedSegmentIndex = 0
+		case 1: endGame.selectedSegmentIndex = 1
+		case 2: endGame.selectedSegmentIndex = 2
+		case 3: endGame.selectedSegmentIndex = 3
+		default:
+			print("unknown endgame segment index")
+		}
+	}
 	func getOutScout() {
 		
 		switch land.selectedSegmentIndex {
@@ -115,7 +164,7 @@ class ScoutViewController: UIViewController {
 			print("unknown endgame segment index")
 		}
 	}
-	
+	//MARK: - Storyboard Functions
 	@IBAction func onLandChange(_ sender: Any) {
 	}
 	@IBAction func onSampleChanged(_ sender: Any) {
@@ -132,7 +181,7 @@ class ScoutViewController: UIViewController {
 	}
 	@IBAction func onEndGameChanged(_ sender: Any) {
 	}
-	
+	//MARK: - Navigation
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		let identifier = segue.identifier
 		switch identifier {

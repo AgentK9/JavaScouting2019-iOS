@@ -28,8 +28,8 @@ class TeamDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
 		
+		refresh()
 		refreshLabels()
-		//refresh()
 		navBar.topItem?.title = "\(selectedTeam!.teamName!) - \(selectedTeam!.teamNum)"
 		recordLabel.text = "Season Record: " + selectedTeam!.record!
 		
@@ -40,10 +40,22 @@ class TeamDetailViewController: UIViewController, UITableViewDelegate, UITableVi
 	//MARK: - Data Retriever
 	func refresh() {
 		if db != nil {
+			getTeam()
 		}
 		else {
 			print("database not initialized. initializing.")
 			db = Firestore.firestore()
+			getTeam()
+		}
+	}
+	func getTeam() {
+		grabber.dlTeam(db: db, path: path) { team, error in
+			if let error = error {
+				print("\(error)")
+				return
+			}
+			self.selectedTeam! = team
+			self.refreshLabels()
 		}
 	}
 	func refreshLabels() {
@@ -69,6 +81,10 @@ class TeamDetailViewController: UIViewController, UITableViewDelegate, UITableVi
 		}
 		return cell
 	}
+	//MARK: - Storyboard Functions
+	@IBAction func refreshButton(_ sender: Any) {
+		refresh()
+	}
 	//MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		let identifier = segue.identifier
@@ -78,6 +94,12 @@ class TeamDetailViewController: UIViewController, UITableViewDelegate, UITableVi
 			
 			destination.teamNum = self.selectedTeam?.teamNum
 			destination.path = self.path
+		case "teamToScoutDetail":
+			let destination = segue.destination as! ScoutViewController
+			let index = self.scoutingItemTable.indexPathForSelectedRow
+			let scoutingItem = self.selectedTeam!.scouting[index!.row]
+			destination.editScout = true
+			destination.outScout =
 		case "unwindFromTeamDetail":
 			let destination = segue.destination as! TeamsViewController
 			
