@@ -14,7 +14,7 @@ class TeamDetailViewController: UIViewController, UITableViewDelegate, UITableVi
 	@IBOutlet var navBar: UINavigationBar!
 	@IBOutlet var recordLabel: UILabel!
 	@IBOutlet var scoutingItemTable: UITableView!
-	@IBOutlet var compRecordLabel: UILabel!
+	//@IBOutlet var compRecordLabel: UILabel!
 	@IBOutlet var autoLabel: UILabel!
 	@IBOutlet var teleLabel: UILabel!
 	@IBOutlet var endGameLabel: UILabel!
@@ -56,10 +56,11 @@ class TeamDetailViewController: UIViewController, UITableViewDelegate, UITableVi
 			}
 			self.selectedTeam! = team
 			self.refreshLabels()
+			self.scoutingItemTable.reloadData()
 		}
 	}
 	func refreshLabels() {
-		compRecordLabel.text = "Competition Record: \(selectedTeam!.compRecord[0])-\(selectedTeam!.compRecord[1])-\(selectedTeam!.compRecord[2])"
+		//compRecordLabel.text = "Competition Record: \(selectedTeam!.compRecord[0])-\(selectedTeam!.compRecord[1])-\(selectedTeam!.compRecord[2])"
 		autoLabel.text = "Average Auto: \(selectedTeam!.highScore(type: "auto"))"
 		teleLabel.text = "Average TeleOp: \(selectedTeam!.highScore(type: "tele"))"
 		endGameLabel.text = "Average End Game: \(selectedTeam!.highScore(type: "end"))"

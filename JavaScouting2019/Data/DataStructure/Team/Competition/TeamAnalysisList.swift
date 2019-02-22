@@ -11,7 +11,7 @@ import Foundation
 struct TeamAnalysisList {
 	var teams: [ScoutingTeam]
 	var matches: [Match]
-	
+	let grabber = FirebaseGrab()
 	
 	private func getTeamIndexByNumber(_ lteams: [ScoutingTeam], number: Int) -> Int? {
 		let index = lteams.firstIndex(where: {$0.teamNum == number})
@@ -32,10 +32,15 @@ struct TeamAnalysisList {
 					localTeams[index].QP = 0
 				}
 				if results["result"] as! String == "Red" {
+					localTeams[index].compRecord[0] += 1
 					localTeams[index].QP! += 2
 				}
 				else if results["result"] as! String == "Tie" {
+					localTeams[index].compRecord[2] += 1
 					localTeams[index].QP! += 1
+				}
+				else {
+					localTeams[index].compRecord[1] += 1
 				}
 				
 				if localTeams[index].TBP == nil {
@@ -53,10 +58,15 @@ struct TeamAnalysisList {
 					localTeams[index].QP = 0
 				}
 				if results["result"] as! String == "Blue" {
+					localTeams[index].compRecord[0] += 1
 					localTeams[index].QP! += 2
 				}
 				else if results["result"] as! String == "Tie" {
+					localTeams[index].compRecord[2] += 1
 					localTeams[index].QP! += 1
+				}
+				else {
+					localTeams[index].compRecord[1] += 1
 				}
 				
 				if localTeams[index].TBP == nil {
