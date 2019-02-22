@@ -7,15 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0A033BE522126BAD00C27068 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A033BE422126BAD00C27068 /* GoogleService-Info.plist */; };
 		0A033BEF22126E7F00C27068 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A033BEE22126E7F00C27068 /* Team.swift */; };
 		0A033BF122126F3500C27068 /* Competition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A033BF022126F3500C27068 /* Competition.swift */; };
 		0A033BF322126F4300C27068 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A033BF222126F4300C27068 /* Member.swift */; };
 		0A033BF522126FCF00C27068 /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A033BF422126FCF00C27068 /* Match.swift */; };
 		0A033BF72212709C00C27068 /* ScoutingTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A033BF62212709C00C27068 /* ScoutingTeam.swift */; };
 		0A033BF92212711F00C27068 /* ScoutingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A033BF82212711F00C27068 /* ScoutingData.swift */; };
-		0A033C0122138FD600C27068 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A033BFF22138FD600C27068 /* LoginViewController.swift */; };
-		0A033C0222138FD600C27068 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A033C0022138FD600C27068 /* LoginViewController.xib */; };
 		0A033C0722139DE700C27068 /* CompetitionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A033C0522139DE700C27068 /* CompetitionTableViewController.swift */; };
 		0A033C0822139DE700C27068 /* CompetitionTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A033C0622139DE700C27068 /* CompetitionTableViewController.xib */; };
 		0A033C0B22139E0B00C27068 /* AddCompetitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A033C0922139E0B00C27068 /* AddCompetitionViewController.swift */; };
@@ -49,19 +46,25 @@
 		0AEC5C2821F54F71006CEE45 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AEC5C2621F54F71006CEE45 /* Main.storyboard */; };
 		0AEC5C2A21F54F73006CEE45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AEC5C2921F54F73006CEE45 /* Assets.xcassets */; };
 		0AEC5C2D21F54F73006CEE45 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AEC5C2B21F54F73006CEE45 /* LaunchScreen.storyboard */; };
+		4F9FC9652220BF2700841E42 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4F9FC9642220BF2600841E42 /* GoogleService-Info.plist */; };
+		4F9FC9732220BFA900841E42 /* LoadingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F9FC9682220BFA900841E42 /* LoadingViewController.xib */; };
+		4F9FC9742220BFA900841E42 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9FC9692220BFA900841E42 /* LoadingViewController.swift */; };
+		4F9FC9752220BFA900841E42 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9FC96B2220BFA900841E42 /* IntroViewController.swift */; };
+		4F9FC9762220BFA900841E42 /* IntroViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F9FC96C2220BFA900841E42 /* IntroViewController.xib */; };
+		4F9FC9772220BFA900841E42 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9FC96E2220BFA900841E42 /* SignupViewController.swift */; };
+		4F9FC9782220BFA900841E42 /* SignupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F9FC96F2220BFA900841E42 /* SignupViewController.xib */; };
+		4F9FC9792220BFA900841E42 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F9FC9712220BFA900841E42 /* LoginViewController.xib */; };
+		4F9FC97A2220BFA900841E42 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9FC9722220BFA900841E42 /* LoginViewController.swift */; };
 		6C195787C65BD71E54A5F551 /* Pods_JavaScouting2019.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 417A4E64BC3ECD3D110C4EB9 /* Pods_JavaScouting2019.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0A033BE422126BAD00C27068 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0A033BEE22126E7F00C27068 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		0A033BF022126F3500C27068 /* Competition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Competition.swift; sourceTree = "<group>"; };
 		0A033BF222126F4300C27068 /* Member.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
 		0A033BF422126FCF00C27068 /* Match.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
 		0A033BF62212709C00C27068 /* ScoutingTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoutingTeam.swift; sourceTree = "<group>"; };
 		0A033BF82212711F00C27068 /* ScoutingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoutingData.swift; sourceTree = "<group>"; };
-		0A033BFF22138FD600C27068 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		0A033C0022138FD600C27068 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		0A033C0522139DE700C27068 /* CompetitionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetitionTableViewController.swift; sourceTree = "<group>"; };
 		0A033C0622139DE700C27068 /* CompetitionTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompetitionTableViewController.xib; sourceTree = "<group>"; };
 		0A033C0922139E0B00C27068 /* AddCompetitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCompetitionViewController.swift; sourceTree = "<group>"; };
@@ -83,7 +86,6 @@
 		0A45DDB1221BB33C00AE5303 /* AnalysisViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisViewController.swift; sourceTree = "<group>"; };
 		0A45DDB2221BB33C00AE5303 /* AnalysisViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnalysisViewController.xib; sourceTree = "<group>"; };
 		0A45DDB5221BB53A00AE5303 /* TeamAnalysisList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamAnalysisList.swift; sourceTree = "<group>"; };
-		0A45DDB922207D2500AE5303 /* adam512.h5 */ = {isa = PBXFileReference; lastKnownFileType = file; name = adam512.h5; path = ../../../../../Downloads/CuteBoringMicrostation/models/adam512.h5; sourceTree = "<group>"; };
 		0A8AA2F6220008BA00E24F01 /* InitScoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitScoutViewController.swift; sourceTree = "<group>"; };
 		0A8AA2F7220008BA00E24F01 /* InitScoutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = InitScoutViewController.xib; path = ../InitScoutViewController.xib; sourceTree = "<group>"; };
 		0A8AA2FA220008C900E24F01 /* ScoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ScoutViewController.swift; path = "../New Group/ScoutViewController.swift"; sourceTree = "<group>"; };
@@ -100,6 +102,16 @@
 		0AEC5C2E21F54F73006CEE45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		39AF6AA7BA8A8E3EA0240D9E /* Pods-JavaScouting2019.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JavaScouting2019.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JavaScouting2019/Pods-JavaScouting2019.debug.xcconfig"; sourceTree = "<group>"; };
 		417A4E64BC3ECD3D110C4EB9 /* Pods_JavaScouting2019.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JavaScouting2019.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F9FC9642220BF2600841E42 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4F9FC9682220BFA900841E42 /* LoadingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingViewController.xib; sourceTree = "<group>"; };
+		4F9FC9692220BFA900841E42 /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
+		4F9FC96B2220BFA900841E42 /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
+		4F9FC96C2220BFA900841E42 /* IntroViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntroViewController.xib; sourceTree = "<group>"; };
+		4F9FC96E2220BFA900841E42 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		4F9FC96F2220BFA900841E42 /* SignupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignupViewController.xib; sourceTree = "<group>"; };
+		4F9FC9712220BFA900841E42 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		4F9FC9722220BFA900841E42 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		4F9FC97B2220BFC000841E42 /* adam512.h5 */ = {isa = PBXFileReference; lastKnownFileType = file; name = adam512.h5; path = "../../JavaScouting2019-Noah/JavaScouting2019/adam512.h5"; sourceTree = "<group>"; };
 		DAFBB98DFA31AE544FA84BB3 /* Pods-JavaScouting2019.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JavaScouting2019.release.xcconfig"; path = "Pods/Target Support Files/Pods-JavaScouting2019/Pods-JavaScouting2019.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -178,15 +190,6 @@
 			path = ScoutingData;
 			sourceTree = "<group>";
 		};
-		0A033BFA22138F5600C27068 /* Onboarding */ = {
-			isa = PBXGroup;
-			children = (
-				0A033BFF22138FD600C27068 /* LoginViewController.swift */,
-				0A033C0022138FD600C27068 /* LoginViewController.xib */,
-			);
-			path = Onboarding;
-			sourceTree = "<group>";
-		};
 		0A033C0322139C8400C27068 /* Competitions */ = {
 			isa = PBXGroup;
 			children = (
@@ -251,7 +254,7 @@
 		0A45DDB7221F9A6900AE5303 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				0A033BFA22138F5600C27068 /* Onboarding */,
+				4F9FC9662220BFA900841E42 /* Onboarding */,
 				0A033C0322139C8400C27068 /* Competitions */,
 			);
 			path = ViewControllers;
@@ -273,7 +276,6 @@
 		0AEC5C1421F54F71006CEE45 = {
 			isa = PBXGroup;
 			children = (
-				0A033BE422126BAD00C27068 /* GoogleService-Info.plist */,
 				0AEC5C1F21F54F71006CEE45 /* JavaScouting2019 */,
 				0AEC5C1E21F54F71006CEE45 /* Products */,
 				594FC2EC18DBDDB0EB9179E9 /* Pods */,
@@ -293,8 +295,9 @@
 			isa = PBXGroup;
 			children = (
 				0AEC5C2E21F54F73006CEE45 /* Info.plist */,
+				4F9FC9642220BF2600841E42 /* GoogleService-Info.plist */,
 				0AEC5C2621F54F71006CEE45 /* Main.storyboard */,
-				0A45DDB922207D2500AE5303 /* adam512.h5 */,
+				4F9FC97B2220BFC000841E42 /* adam512.h5 */,
 				0AEC5C2921F54F73006CEE45 /* Assets.xcassets */,
 				0AEC5C2B21F54F73006CEE45 /* LaunchScreen.storyboard */,
 				0AEC5C2021F54F71006CEE45 /* AppDelegate.swift */,
@@ -310,6 +313,53 @@
 				417A4E64BC3ECD3D110C4EB9 /* Pods_JavaScouting2019.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4F9FC9662220BFA900841E42 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				4F9FC9672220BFA900841E42 /* Loading */,
+				4F9FC96A2220BFA900841E42 /* Intro */,
+				4F9FC96D2220BFA900841E42 /* Signup */,
+				4F9FC9702220BFA900841E42 /* Login */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		4F9FC9672220BFA900841E42 /* Loading */ = {
+			isa = PBXGroup;
+			children = (
+				4F9FC9682220BFA900841E42 /* LoadingViewController.xib */,
+				4F9FC9692220BFA900841E42 /* LoadingViewController.swift */,
+			);
+			path = Loading;
+			sourceTree = "<group>";
+		};
+		4F9FC96A2220BFA900841E42 /* Intro */ = {
+			isa = PBXGroup;
+			children = (
+				4F9FC96B2220BFA900841E42 /* IntroViewController.swift */,
+				4F9FC96C2220BFA900841E42 /* IntroViewController.xib */,
+			);
+			path = Intro;
+			sourceTree = "<group>";
+		};
+		4F9FC96D2220BFA900841E42 /* Signup */ = {
+			isa = PBXGroup;
+			children = (
+				4F9FC96E2220BFA900841E42 /* SignupViewController.swift */,
+				4F9FC96F2220BFA900841E42 /* SignupViewController.xib */,
+			);
+			path = Signup;
+			sourceTree = "<group>";
+		};
+		4F9FC9702220BFA900841E42 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				4F9FC9712220BFA900841E42 /* LoginViewController.xib */,
+				4F9FC9722220BFA900841E42 /* LoginViewController.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		594FC2EC18DBDDB0EB9179E9 /* Pods */ = {
@@ -382,20 +432,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A45DDB4221BB33C00AE5303 /* AnalysisViewController.xib in Resources */,
-				0A033C0222138FD600C27068 /* LoginViewController.xib in Resources */,
 				0AEC5C2D21F54F73006CEE45 /* LaunchScreen.storyboard in Resources */,
 				0AEC5C2A21F54F73006CEE45 /* Assets.xcassets in Resources */,
+				4F9FC9762220BFA900841E42 /* IntroViewController.xib in Resources */,
+				4F9FC9732220BFA900841E42 /* LoadingViewController.xib in Resources */,
 				0A45DDAF221A02B500AE5303 /* MatchDetailViewController.xib in Resources */,
 				0A8AA2FD220008C900E24F01 /* ScoutViewController.xib in Resources */,
 				0AEC5C2821F54F71006CEE45 /* Main.storyboard in Resources */,
+				4F9FC9792220BFA900841E42 /* LoginViewController.xib in Resources */,
 				0A44443B2217706300F8D987 /* NewMatchViewController.xib in Resources */,
+				4F9FC9652220BF2700841E42 /* GoogleService-Info.plist in Resources */,
+				4F9FC9782220BFA900841E42 /* SignupViewController.xib in Resources */,
 				0A033C0822139DE700C27068 /* CompetitionTableViewController.xib in Resources */,
 				0A033C132213C8A600C27068 /* NewTeamViewController.xib in Resources */,
 				0A033C0C22139E0B00C27068 /* AddCompetitionViewController.xib in Resources */,
 				0A8AA2F9220008BA00E24F01 /* InitScoutViewController.xib in Resources */,
 				0A44443F221852F000F8D987 /* TeamSelectViewController.xib in Resources */,
 				0A8AA301220008D800E24F01 /* TeamDetailViewController.xib in Resources */,
-				0A033BE522126BAD00C27068 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -497,14 +550,17 @@
 				0A44443E221852F000F8D987 /* TeamSelectViewController.swift in Sources */,
 				0A8AA2FC220008C900E24F01 /* ScoutViewController.swift in Sources */,
 				0A44442A2215E63400F8D987 /* EncodableExt.swift in Sources */,
+				4F9FC97A2220BFA900841E42 /* LoginViewController.swift in Sources */,
 				0A033C122213C8A600C27068 /* NewTeamViewController.swift in Sources */,
 				0A45DDB6221BB53A00AE5303 /* TeamAnalysisList.swift in Sources */,
 				0A44443422165DF600F8D987 /* FirebaseGrab.swift in Sources */,
 				0A45DDB3221BB33C00AE5303 /* AnalysisViewController.swift in Sources */,
 				0AEC5C2321F54F71006CEE45 /* TeamsViewController.swift in Sources */,
+				4F9FC9752220BFA900841E42 /* IntroViewController.swift in Sources */,
+				4F9FC9742220BFA900841E42 /* LoadingViewController.swift in Sources */,
 				0A8AA2F8220008BA00E24F01 /* InitScoutViewController.swift in Sources */,
 				0A033C0722139DE700C27068 /* CompetitionTableViewController.swift in Sources */,
-				0A033C0122138FD600C27068 /* LoginViewController.swift in Sources */,
+				4F9FC9772220BFA900841E42 /* SignupViewController.swift in Sources */,
 				0A033BF122126F3500C27068 /* Competition.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
