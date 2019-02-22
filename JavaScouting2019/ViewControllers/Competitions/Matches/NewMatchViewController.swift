@@ -97,6 +97,22 @@ class NewMatchViewController: UIViewController {
 		}
 		return list
 	}
+	func pushAndPullMatch() -> Match {
+		let redTeams = getListOfTeams("red")
+		let blueTeams = getListOfTeams("blue")
+		let red = [redTeams[0]!.teamNum, redTeams[1]!.teamNum]
+		let blue = [blueTeams[0]!.teamNum, blueTeams[1]!.teamNum]
+		let docData: [String: Any] = [
+			"matchNum": matchNum,
+			"redTeams": red,
+			"blueTeams": blue
+		]
+		let docRef = db.collection(matchPath).document("\(matchNum!)")
+		docRef.setData(docData)
+		var match: Match!
+		match = Match(matchNum: matchNum, redTeams: [red1!.teamNum, red2!.teamNum], blueTeams: [blue1!.teamNum, blue2!.teamNum])
+		return match
+	}
 	//MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		let identifier = segue.identifier
@@ -108,16 +124,10 @@ class NewMatchViewController: UIViewController {
 			print("TeamColNum" + selected)
 			destination.preTeams = getListOfTeams("all")
 		case "doneMatch":
-			let redTeams = getListOfTeams("red")
-			let blueTeams = getListOfTeams("blue")
-			let red = [redTeams[0]!.teamNum, redTeams[1]!.teamNum]
-			let blue = [blueTeams[0]!.teamNum, blueTeams[1]!.teamNum]
-			let docData: [String: Any] = [
-				"matchNum": matchNum,
-				"redTeams": red,
-				"blueTeams": blue
-			]
-			db.collection(matchPath).document("\(matchNum!)").setData(docData)
+			let destination = segue.destination as! MatchDetailViewController
+			destination.selectedMatch = pushAndPullMatch()
+			destination.teamPath = self.teamPath
+			destination.matchPath = self.matchPath
 			print("done with match")
 		default:
 			print("unrecognized segue identifier")

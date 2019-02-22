@@ -79,6 +79,7 @@ class MatchDetailViewController: UIViewController {
 		print(matchTeams)
 	}
 	private func refreshLabels() {
+		self.title = "Match \(selectedMatch.matchNum)"
 		if matchTeams.count == 4 {
 			redTeamA.text = "\(matchTeams[0].teamName!) - \(matchTeams[0].teamNum)"
 			redTeamB.text = "\(matchTeams[1].teamName!) - \(matchTeams[1].teamNum)"

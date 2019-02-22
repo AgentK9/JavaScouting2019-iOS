@@ -55,17 +55,18 @@ class AddCompetitionViewController: UIViewController {
 			
 			let nav1 = vcs[0] as! UINavigationController
 			let destination1 = nav1.viewControllers.first as! TeamsViewController
-			destination1.path = path + "teams/"
+			//destination1.matchPath = comp.path + "matches/"
+			destination1.path = comp.path + "teams/"
 			
 			let nav2 = vcs[1] as! UINavigationController
 			let destination2 = nav2.viewControllers.first as! MatchTableViewController
-			destination2.matchPath = path + "matches/"
-			destination2.teamPath = path + "teams/"
+			destination2.matchPath = comp.path + "matches/"
+			destination2.teamPath = comp.path + "teams/"
 			
 			let nav3 = vcs[2] as! UINavigationController
 			let destination3 = nav3.viewControllers.first as! AnalysisViewController
-			destination3.matchPath = path + "matches/"
-			destination3.teamPath = path + "teams/"
+			destination3.matchPath = comp.path + "matches/"
+			destination3.teamPath = comp.path + "teams/"
 		default:
 			print("unknown segue identifier")
 		}
