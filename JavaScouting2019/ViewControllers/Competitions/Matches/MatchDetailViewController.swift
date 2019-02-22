@@ -82,10 +82,16 @@ class MatchDetailViewController: UIViewController {
 		if matchTeams.count == 4 {
 			redTeamA.text = "\(matchTeams[0].teamName!) - \(matchTeams[0].teamNum)"
 			redTeamB.text = "\(matchTeams[1].teamName!) - \(matchTeams[1].teamNum)"
+			redAuto.text = "\(selectedMatch.getAuto(color: "red", teams: teams))"
+			redTele.text = "\(selectedMatch.getTeleOP(color: "red", teams: teams))"
+			redEnd.text = "\(selectedMatch.getEndGame(color: "red", teams: teams))"
 			redTotal.text = "\(selectedMatch.getScore(color: "red", teams: matchTeams, type: nil))"
 			
 			blueTeamA.text = "\(matchTeams[2].teamName!) - \(matchTeams[2].teamNum)"
 			blueTeamB.text = "\(matchTeams[3].teamName!) - \(matchTeams[3].teamNum)"
+			blueAuto.text = "\(selectedMatch.getAuto(color: "blue", teams: teams))"
+			blueTele.text = "\(selectedMatch.getTeleOP(color: "blue", teams: teams))"
+			blueEnd.text = "\(selectedMatch.getEndGame(color: "blue", teams: teams))"
 			blueTotal.text = "\(selectedMatch.getScore(color: "blue", teams: matchTeams, type: nil))"
 			
 			winLabel.text = "Winner: \(selectedMatch.getWinner(teams: teams))"

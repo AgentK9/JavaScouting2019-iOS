@@ -24,6 +24,7 @@ class InitScoutViewController: UIViewController {
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
+		matchNumField.isEnabled = true
 		isInitial = false
 		matchNum = 0
 		comp = ""
@@ -42,6 +43,7 @@ class InitScoutViewController: UIViewController {
 			matchNum = 0
 		}
 		else {
+			isInitial = false
 			matchNumField.isEnabled = true
 		}
 	}
@@ -51,7 +53,7 @@ class InitScoutViewController: UIViewController {
 		
 		if let text = matchNumField.text {
 			if let num = Int(text) {
-				teamNum = num
+				matchNum = num
 			}
 			else {
 				goodToContinue = false
@@ -82,7 +84,7 @@ class InitScoutViewController: UIViewController {
 		// add other code here to let user know
 	}
 	
-	
+	//MARK: - Navigation
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		let identifier = segue.identifier
 		switch identifier {
@@ -92,11 +94,14 @@ class InitScoutViewController: UIViewController {
 			destination.isInitial = self.isInitial
 			destination.matchNum = self.matchNum
 			destination.teamNum = self.teamNum
+			destination.editScout = false
 			destination.path = self.path
 			
 		default:
 			print("Unrecognized segue identifier")
 		}
     }
+	@IBAction func unwindFromScoutingDetail(segue: UIStoryboardSegue) {
+	}
 
 }

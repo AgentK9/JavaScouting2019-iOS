@@ -78,6 +78,24 @@ class FirebaseGrab {
 			
 	}
 	
+	func dlTeam(db: Firestore, path: String, completion: @escaping (ScoutingTeam, Error?) -> Void) {
+		var team: ScoutingTeam!
+		let query = db.document(path)
+		query.getDocument() { document, error in
+			if let error = error {
+				print("Error downloading team: \(error)")
+				completion(team, error)
+				return
+			}
+			team = self.parser.teamsParse(document!)
+			let pathA = path + "\(document!.documentID)/"
+			team.path = pathA
+			completion(team, nil)
+			
+		}
+		
+	}
+	
 	/*
 	func dlScouts(db: Firestore, path: String, completion: @escaping ([ScoutingData], Error?) -> Void) {
 		var scoutArray = [ScoutingData]()

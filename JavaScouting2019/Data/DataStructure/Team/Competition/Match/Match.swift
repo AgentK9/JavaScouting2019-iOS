@@ -17,6 +17,72 @@ struct Match: Codable {
 		let array = redTeams + blueTeams
 		return array
 	}
+	func getAuto(color: String, teams: [ScoutingTeam]?) -> Float {
+		var score: Float = 0
+		if teams != nil {
+			switch color {
+			case "red":
+				for num in redTeams {
+					let team = teams!.first(where: {$0.teamNum == num})
+					score += Float(team!.avgScore(type: "auto"))
+					
+				}
+			case "blue":
+				for num in blueTeams {
+					let team = teams!.first(where: {$0.teamNum == num})
+					score += Float(team!.avgScore(type: "auto"))
+					
+				}
+			default:
+				print()
+			}
+		}
+		return score
+	}
+	func getTeleOP(color: String, teams: [ScoutingTeam]?) -> Float {
+		var score: Float = 0
+		if teams != nil {
+			switch color {
+			case "red":
+				for num in redTeams {
+					let team = teams!.first(where: {$0.teamNum == num})
+					score += Float(team!.avgScore(type: "tele"))
+					
+				}
+			case "blue":
+				for num in blueTeams {
+					let team = teams!.first(where: {$0.teamNum == num})
+					score += Float(team!.avgScore(type: "tele"))
+					
+				}
+			default:
+				print()
+			}
+		}
+		return score
+	}
+	func getEndGame(color: String, teams: [ScoutingTeam]?) -> Float {
+		var score: Float = 0
+		if teams != nil {
+			switch color {
+			case "red":
+				for num in redTeams {
+					let team = teams!.first(where: {$0.teamNum == num})
+					score += Float(team!.avgScore(type: "end"))
+					
+				}
+			case "blue":
+				for num in blueTeams {
+					let team = teams!.first(where: {$0.teamNum == num})
+					score += Float(team!.avgScore(type: "end"))
+					
+				}
+			default:
+				print()
+			}
+		}
+		return score
+	}
 	func getScore(color: String, teams: [ScoutingTeam]?, type: String?) -> Float {
 		var score: Float = 0
 		if teams != nil {
