@@ -10,5 +10,6 @@ target 'JavaScouting2019' do
   pod 'Firebase/Firestore'
   pod 'Firebase/Auth'
   pod 'MaterialComponents'
+  pod 'paper-onboarding'
 
 end
