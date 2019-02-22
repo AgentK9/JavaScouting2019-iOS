@@ -79,6 +79,7 @@ class CompetitionTableViewController: UITableViewController {
 			let destination1 = nav1.viewControllers.first as! TeamsViewController
 			let indexPath = tableView.indexPathForSelectedRow
 			let comp = self.competitions[indexPath!.row]
+			//destination1.matchPath = comp.path + "matches/"
 			destination1.path = comp.path + "teams/"
 			
 			let nav2 = vcs[1] as! UINavigationController

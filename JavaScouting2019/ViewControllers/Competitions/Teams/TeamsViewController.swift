@@ -16,6 +16,7 @@ class TeamsViewController: UITableViewController {
 	var path: String = ""
 	let grabber = FirebaseGrab()
 	var db: Firestore!
+	//var matchPath: String!
 	//MARK: - View handlers
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
