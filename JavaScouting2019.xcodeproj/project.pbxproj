@@ -285,8 +285,8 @@
 		4F741D4F221FA55A00421D6B /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				4F741D50221FA55A00421D6B /* LoginViewController.xib */,
 				4F741D51221FA55A00421D6B /* LoginViewController.swift */,
+				4F741D50221FA55A00421D6B /* LoginViewController.xib */,
 			);
 			path = Login;
 			sourceTree = "<group>";
