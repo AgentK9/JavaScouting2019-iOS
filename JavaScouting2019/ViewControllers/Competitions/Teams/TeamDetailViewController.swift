@@ -59,10 +59,11 @@ class TeamDetailViewController: UIViewController, UITableViewDelegate, UITableVi
 		}
 	}
 	func refreshLabels() {
-		autoLabel.text = "\(selectedTeam!.highScore(type: "auto"))"
-		teleLabel.text = "\(selectedTeam!.highScore(type: "tele"))"
-		endGameLabel.text = "\(selectedTeam!.highScore(type: "end"))"
-		totalLabel.text = "\(selectedTeam!.highScore(type: "total"))"
+		compRecordLabel.text = "Competition Record: \(selectedTeam!.compRecord[0])-\(selectedTeam!.compRecord[1])-\(selectedTeam!.compRecord[2])"
+		autoLabel.text = "Average Auto: \(selectedTeam!.highScore(type: "auto"))"
+		teleLabel.text = "Average TeleOp: \(selectedTeam!.highScore(type: "tele"))"
+		endGameLabel.text = "Average End Game: \(selectedTeam!.highScore(type: "end"))"
+		totalLabel.text = "Average Total: \(selectedTeam!.highScore(type: "total"))"
 	}
 	//MARK: - TableView Source
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
