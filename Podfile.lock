@@ -16,6 +16,9 @@ PODS:
   - Firebase/Firestore (5.16.0):
     - Firebase/CoreOnly
     - FirebaseFirestore (= 1.0.0)
+  - Firebase/MLModelInterpreter (5.16.0):
+    - Firebase/CoreOnly
+    - FirebaseMLModelInterpreter (= 0.14.0)
   - FirebaseAnalytics (5.5.0):
     - FirebaseCore (~> 5.2)
     - FirebaseInstanceID (~> 3.4)
@@ -52,6 +55,16 @@ PODS:
     - FirebaseCore (~> 5.2)
     - GoogleUtilities/Environment (~> 5.3)
     - GoogleUtilities/UserDefaults (~> 5.3)
+  - FirebaseMLCommon (0.14.0):
+    - FirebaseCore (~> 5.2)
+    - FirebaseInstanceID (~> 3.4)
+    - GoogleUtilities/UserDefaults (~> 5.3)
+    - GTMSessionFetcher/Core (~> 1.1)
+  - FirebaseMLModelInterpreter (0.14.0):
+    - FirebaseCore (~> 5.2)
+    - FirebaseMLCommon (~> 0.14)
+    - GoogleUtilities/UserDefaults (~> 5.3)
+    - TensorFlowLite (= 1.12.0)
   - GoogleAppMeasurement (5.5.0):
     - GoogleUtilities/AppDelegateSwizzler (~> 5.2)
     - GoogleUtilities/MethodSwizzler (~> 5.2)
@@ -613,11 +626,13 @@ PODS:
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
   - Protobuf (3.6.1)
+  - TensorFlowLite (1.12.0)
 
 DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Firestore
+  - Firebase/MLModelInterpreter
   - MaterialComponents
 
 SPEC REPOS:
@@ -630,6 +645,8 @@ SPEC REPOS:
     - FirebaseCore
     - FirebaseFirestore
     - FirebaseInstanceID
+    - FirebaseMLCommon
+    - FirebaseMLModelInterpreter
     - GoogleAppMeasurement
     - GoogleUtilities
     - "gRPC-C++"
@@ -644,6 +661,7 @@ SPEC REPOS:
     - MotionTransitioning
     - nanopb
     - Protobuf
+    - TensorFlowLite
 
 SPEC CHECKSUMS:
   BoringSSL-GRPC: 2a230d9cd93e7ce39916044f645cebb31f37dde6
@@ -654,6 +672,8 @@ SPEC CHECKSUMS:
   FirebaseCore: ea2d1816723ef21492b8e9113303e1350db5e08c
   FirebaseFirestore: 6f2b93b4f7bb8416628142763c91ccc00fa04c86
   FirebaseInstanceID: 97ea7a5dca9afd72c79bfcdddb7a44aa1cbb42a1
+  FirebaseMLCommon: d8a789e36a7faa175b1a5d1139e7fc7323c8db7b
+  FirebaseMLModelInterpreter: ef0ea1d46758546246b0b85c22107df70d804b6e
   GoogleAppMeasurement: 621f3bc6211d5ba548debe01fafad30cf5ab6859
   GoogleUtilities: 111a012f4c3a29c9e7c954c082fafd6ee3c999c0
   "gRPC-C++": e76441995900ac90e9bd98644ab4733f12521edf
@@ -668,7 +688,8 @@ SPEC CHECKSUMS:
   MotionTransitioning: 23d25edc2f4606efb922403cbac6d81af37aa33a
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
+  TensorFlowLite: e81aef029750aa46b42ad16553fa4cddd81498cc
 
-PODFILE CHECKSUM: 4ec1fa78405e13c9a0d222402545004b02581322
+PODFILE CHECKSUM: e48e2b8da0f23613b48e0ed6b3b68040dfbf2ded
 
 COCOAPODS: 1.5.3

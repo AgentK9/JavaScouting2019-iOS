@@ -20,6 +20,16 @@ class FirebaseParse {
 		}
 		return comp
 	}
+	func matchesParse(_ matchDoc: DocumentSnapshot) -> Match {
+		let matchData = matchDoc.data()
+		var match: Match!
+		
+		if let newMatch = try? JSONSerialization.data(withJSONObject: matchData, options: []) {
+			match = try! JSONDecoder().decode(Match.self, from: newMatch)
+		}
+		print("got match")
+		return match
+	}
 	func teamsParse(_ teamDoc: DocumentSnapshot) -> ScoutingTeam {
 		let teamData = teamDoc.data()
 		var team: ScoutingTeam!
@@ -30,6 +40,7 @@ class FirebaseParse {
 		print("got team")
 		return team
 	}
+	/*
 	func scoutParse(_ scoutDoc: DocumentSnapshot) -> ScoutingData {
 		let scoutData = scoutDoc.data()
 		var scout: ScoutingData!
@@ -38,5 +49,5 @@ class FirebaseParse {
 			scout = try! JSONDecoder().decode(ScoutingData.self, from: newScout)
 		}
 		return scout
-	}
+	}*/
 }

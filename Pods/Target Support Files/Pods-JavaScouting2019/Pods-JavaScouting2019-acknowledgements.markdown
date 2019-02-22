@@ -1092,6 +1092,14 @@ Copyright 2019 Google
 
 Copyright 2019 Google
 
+## FirebaseMLCommon
+
+Copyright 2019 Google
+
+## FirebaseMLModelInterpreter
+
+Copyright 2019 Google
+
 ## GTMSessionFetcher
 
 
@@ -2779,6 +2787,10 @@ of the input file used when generating it.  This code is not
 standalone and requires a support library to be linked with it.  This
 support library is itself covered by the above license.
 
+
+## TensorFlowLite
+
+Apache 2
 
 ## gRPC-C++
 
