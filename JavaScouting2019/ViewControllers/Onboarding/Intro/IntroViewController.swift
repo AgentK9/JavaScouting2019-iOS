@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 import paper_onboarding
 
 class IntroViewController: UIViewController, PaperOnboardingDelegate, PaperOnboardingDataSource {
@@ -19,25 +20,25 @@ class IntroViewController: UIViewController, PaperOnboardingDelegate, PaperOnboa
     
     //Add the following items to the onboarding view (to be shown to the user).
     let onBoardItem: OnboardingItemInfo = OnboardingItemInfo(
-        informationImage: UIImage(named: "intro-quiz")!,
+        informationImage: UIImage(named: "data-intro")!,
         title: "Scout",
         description: "Our app can help you collect scout data during your FTC competition.  You can store all of your data and share it between your team members by logging in.",
-        pageIcon: UIImage(named: "intro-quiz-bottom")!,
+        pageIcon: UIImage(named: "intro-data-bottom")!,
         color: UIColor.init(named: "colorPrimary")!,
         titleColor: UIColor.white, descriptionColor: UIColor.white, titleFont: titleFont, descriptionFont: descriptionFont)
     
     let onBoardItem2: OnboardingItemInfo = OnboardingItemInfo(
-        informationImage: UIImage(named: "intro-leaderboard")!,
+        informationImage: UIImage(named: "ai-intro")!,
         title: "AI",
         description: "We utilize AI to create rankings of teams.  We also use AI to generate the best alliance partners.",
-        pageIcon: UIImage(named: "intro-leaderboard-bottom")!,
+        pageIcon: UIImage(named: "intro-ai-bottom")!,
         color: UIColor.init(named: "gray")!,
         titleColor: UIColor.white, descriptionColor: UIColor.white, titleFont: titleFont, descriptionFont: descriptionFont)
     
-    let onBoardItem3: OnboardingItemInfo = OnboardingItemInfo(informationImage: UIImage(named: "intro-book")!,
+    let onBoardItem3: OnboardingItemInfo = OnboardingItemInfo(informationImage: UIImage(named: "competitions-intro")!,
         title: "Competitions",
         description: "All your data is saved from competitions so you can go back and view scouting data at any time.",
-        pageIcon: UIImage(named: "intro-book-bottom")!,
+        pageIcon: UIImage(named: "intro-competitions-bottom")!,
         color: UIColor.init(named: "red")!,
         titleColor: UIColor.white, descriptionColor: UIColor.white, titleFont: titleFont, descriptionFont: descriptionFont)
     
