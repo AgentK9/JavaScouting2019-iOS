@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import FirebaseMLCommon
+import FirebaseMLModelInterpreter
 
 struct TeamAnalysisList {
 	var teams: [ScoutingTeam]
@@ -161,9 +163,53 @@ struct TeamAnalysisList {
 		
 		return rankedTeams
 	}
-	/*
-	func getAI()-> [Int] {
-		
+	
+	func initAI() -> [Any] {
+		let modelPath = Bundle.main.path(forResource: "adam", ofType: "tflite")
+		let localModelSource = LocalModelSource(
+			name: "adam",
+			path: modelPath!
+		)
+		let registrationSuccessful = ModelManager.modelManager().register(localModelSource)
+		let ioOptions = ModelInputOutputOptions()
+		do {
+			try ioOptions.setInputFormat(index: 0, type: .int32, dimensions: [1, 5, 1, 1, 1, 1])
+			try ioOptions.setOutputFormat(index: 0, type: .float32, dimensions: [1, 1])
+		} catch let error as NSError {
+			print("Failed to set input or output format with error: \(error.localizedDescription)")
+		}
+		let options = ModelOptions(cloudModelName: nil, localModelName: "adam")
+		return [options, ioOptions]
 	}
-	*/
+	
+	func getAIData(team: ScoutingTeam, options: [Any], completion: @escaping (Double, Error?) -> Void) {
+		let interpreter = ModelInterpreter.modelInterpreter(options: options[0] as! ModelOptions)
+		let inputs = ModelInputs()
+		var inputData = Data()
+		do {
+			var teamData = [Float]()
+			teamData.append(team.avgScore(type: "auto"))
+			teamData.append(team.avgScore(type: "tele"))
+			teamData.append(team.avgScore(type: "end"))
+			teamData.append(team.avgScore(type: "total"))
+			teamData.append(team.totalScoreDev())
+			for i in 0...teamData.count-1 {
+				let elementSize = MemoryLayout.size(ofValue: teamData[i])
+				var bytes = [UInt8](repeating: 0, count: elementSize)
+				memcpy(&bytes, &teamData[i], elementSize)
+				inputData.append(&bytes, count: elementSize)
+			}
+			try inputs.addInput(inputData)
+		} catch let error {
+			print("Failed to add input: \(error)")
+		}
+		interpreter.run(inputs: inputs, options: options[1] as! ModelInputOutputOptions) { outputs, error in
+			guard error == nil, let outputs = outputs else { print("error = \(error!)"); return }
+			let output = try? outputs.output(index: 0) as? [[NSNumber]]
+			let numA = output!![0]
+			let rank = Double(truncating: numA[0])
+			completion(rank, nil)
+		}
+	}
+	
 }

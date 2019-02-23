@@ -76,11 +76,25 @@ class AnalysisViewController: UIViewController, UITableViewDataSource, UITableVi
 			case 1:
 				tableTeams = matchAnalysis.getActual()
 			case 2:
-				print("yeet")
+				getAIData()
 			default:
 				tableTeams = matchAnalysis.getProjected()
 			}
 			tableView.reloadData()
+		}
+	}
+	func getAIData() {
+		let options = matchAnalysis.initAI()
+		var rankedTeams = [ScoutingTeam]()
+		for team in teams {
+			matchAnalysis.getAIData(team: team, options: options) { rank, error in
+				var rankTeam = team
+				rankTeam.AIRank = rank
+				rankedTeams.append(rankTeam)
+				rankedTeams.sort(by: {$0.AIRank! > $1.AIRank!})
+				self.tableTeams = rankedTeams
+				self.tableView.reloadData()
+			}
 		}
 	}
 	//MARK: - Storyboard functions
@@ -99,7 +113,12 @@ class AnalysisViewController: UIViewController, UITableViewDataSource, UITableVi
 		let cell = tableView.dequeueReusableCell(withIdentifier: "rankedTeamCell", for: indexPath)
 		let team = tableTeams[indexPath.row]
 		cell.textLabel?.text = "\(team.teamName!) - \(team.teamNum)"
-		cell.detailTextLabel?.text = "QP: \(team.QP!), TBP: \(team.TBP!)"
+		if typeOfRank.selectedSegmentIndex != 2 {
+			cell.detailTextLabel?.text = "QP: \(team.QP!), TBP: \(team.TBP!)"
+		}
+		else {
+			cell.detailTextLabel?.text = "AI Score: \(Float(team.AIRank!))"
+		}
 		return cell
 	}
     // MARK: - Navigation

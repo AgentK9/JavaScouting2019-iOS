@@ -19,11 +19,11 @@ struct ScoutingTeam: Codable {
 	var compRecord: [Int]
 	var QP: Int?
 	var TBP: Float?
+	var AIRank: Double?
 	
 	private func getListOf(type: String) -> [Int] {
 		var list: [Int] = [Int]()
 		
-		print(scouting)
 		if scouting.count > 1 {
 			let newScouting = scouting.filter({$0.matchID > 0})
 			for item in newScouting {
@@ -88,6 +88,19 @@ struct ScoutingTeam: Codable {
 		}
 		return average
 		
+	}
+	func totalScoreDev() -> Float {
+		let avg = avgScore(type: "total")
+		var totalDev: Float = 0
+		for scout in scouting {
+			var deviation = avg - Float(scout.totalPts())
+			if deviation.isLess(than: 0) {
+				deviation -= deviation * 2
+			}
+			totalDev += deviation
+		}
+		let stdDev = totalDev / Float(scouting.count)
+		return stdDev
 	}
 	func highScore(type: String) -> Float {
 		let list: [Int] = getListOf(type: type)
