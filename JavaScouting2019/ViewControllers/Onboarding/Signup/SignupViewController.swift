@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class SignupViewController: UIViewController {
+class SignupViewController: UIViewController, AlertController {
 
     @IBOutlet weak var firstLastField: UITextField!
     @IBOutlet weak var teamNumberField: UITextField!
@@ -26,7 +26,7 @@ class SignupViewController: UIViewController {
     @IBAction func signupAction(_ sender: Any) {
     
         if (!self.fieldsAreFilled()) {
-            //alert user to fill all the fields
+            presentSimpleAlert(title: "Field error", message: "Please make sure to fill out all the fields.", completion: nil)
             return
         }
         
@@ -34,7 +34,7 @@ class SignupViewController: UIViewController {
             Auth.auth().createUser(withEmail: self.emailField.text!, password: self.passwordField.text!, completion: { (user, error) in
                 
                 if let error = error {
-                    //error creating the account
+                    self.presentSimpleAlert(title: "Error", message: "We ran into an error while creating your new account.  \(error.localizedDescription)", completion: nil)
                     return
                 }
                 self.db.collection("Users").document(Auth.auth().currentUser!.uid).setData([
@@ -42,9 +42,9 @@ class SignupViewController: UIViewController {
                     "teamNumber": (self.teamNumberField.text ?? "")
                 ]) { err in
                     if let err = err {
-                        //error occurred while saving user data
+                        self.presentSimpleAlert(title: "Error", message: "We ran into an error while saving your data to our server.  \(err.localizedDescription)", completion: nil)
                     } else {
-                        //send user to the correct view after user creation was successful
+                        //TODO: Send user to the home view
                     }
                 }
             }
@@ -77,13 +77,13 @@ class SignupViewController: UIViewController {
             
             if (field.contains(".") || field.contains("$") || field.contains("#") ||
                 field.contains("[") || field.contains("]") || field.contains("/") || field.contains(" ")) {
-                //alert user they have used illegal characters
+                presentSimpleAlert(title: "Field error", message: "Please make sure that you have not used any illegal characters in the fields.", completion: nil)
                 return false
             }
         }
         
         if (password.count < 6) {
-            //alert user to use a stronger password
+            presentSimpleAlert(title: "Field error", message: "Please make sure to enter a password that has at least 6 characters.", completion: nil)
             return false
         }
         

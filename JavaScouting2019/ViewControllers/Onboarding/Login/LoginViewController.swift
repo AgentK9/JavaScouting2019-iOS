@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, AlertController {
 
 	@IBOutlet var emailTextField: UITextField!
 	@IBOutlet var passTextField: UITextField!
@@ -23,16 +23,16 @@ class LoginViewController: UIViewController {
     @IBAction func loginAction(_ sender: Any) {
         
         if (!self.fieldsAreFilled()) {
-            //the user needs to fill the fields in
+            presentSimpleAlert(title: "Field error", message: "Please make sure to fill out all the fields.", completion: nil)
             return
         }
         
         guard let email = self.emailTextField.text, let password = self.passTextField.text else { return }
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
             if error == nil{
-                //send user to the home page (login succeeded)
+                //TODO: Send the user to the home page
             }else{
-                //and error has occurred while logging in
+                self.presentSimpleAlert(title: "Error", message: "We ran into an error while logging you into your account.  \(error!.localizedDescription)", completion: nil)
             }
         }
         
@@ -48,7 +48,6 @@ class LoginViewController: UIViewController {
     }
     
     private func addKeyboardObservers() {
-        // Add gesture recognizer to handle tapping outside of keyboard
         let dismissKeyboardTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         self.view.addGestureRecognizer(dismissKeyboardTap)
     }

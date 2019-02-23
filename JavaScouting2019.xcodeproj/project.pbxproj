@@ -46,6 +46,8 @@
 		0AEC5C2821F54F71006CEE45 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AEC5C2621F54F71006CEE45 /* Main.storyboard */; };
 		0AEC5C2A21F54F73006CEE45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AEC5C2921F54F73006CEE45 /* Assets.xcassets */; };
 		0AEC5C2D21F54F73006CEE45 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AEC5C2B21F54F73006CEE45 /* LaunchScreen.storyboard */; };
+		4F9B715D2220E78F0066D11D /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9B715C2220E78F0066D11D /* Functions.swift */; };
+		4F9B71602220E9820066D11D /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9B715F2220E9820066D11D /* Reachability.swift */; };
 		4F9FC9652220BF2700841E42 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4F9FC9642220BF2600841E42 /* GoogleService-Info.plist */; };
 		4F9FC9732220BFA900841E42 /* LoadingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F9FC9682220BFA900841E42 /* LoadingViewController.xib */; };
 		4F9FC9742220BFA900841E42 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9FC9692220BFA900841E42 /* LoadingViewController.swift */; };
@@ -102,6 +104,8 @@
 		0AEC5C2E21F54F73006CEE45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		39AF6AA7BA8A8E3EA0240D9E /* Pods-JavaScouting2019.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JavaScouting2019.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JavaScouting2019/Pods-JavaScouting2019.debug.xcconfig"; sourceTree = "<group>"; };
 		417A4E64BC3ECD3D110C4EB9 /* Pods_JavaScouting2019.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JavaScouting2019.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F9B715C2220E78F0066D11D /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
+		4F9B715F2220E9820066D11D /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		4F9FC9642220BF2600841E42 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4F9FC9682220BFA900841E42 /* LoadingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingViewController.xib; sourceTree = "<group>"; };
 		4F9FC9692220BFA900841E42 /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
@@ -301,6 +305,8 @@
 				0AEC5C2921F54F73006CEE45 /* Assets.xcassets */,
 				0AEC5C2B21F54F73006CEE45 /* LaunchScreen.storyboard */,
 				0AEC5C2021F54F71006CEE45 /* AppDelegate.swift */,
+				4F9B715C2220E78F0066D11D /* Functions.swift */,
+				4F9B715F2220E9820066D11D /* Reachability.swift */,
 				0A45DDB7221F9A6900AE5303 /* ViewControllers */,
 				0A4444372217502D00F8D987 /* Data */,
 			);
@@ -356,8 +362,8 @@
 		4F9FC9702220BFA900841E42 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				4F9FC9712220BFA900841E42 /* LoginViewController.xib */,
 				4F9FC9722220BFA900841E42 /* LoginViewController.swift */,
+				4F9FC9712220BFA900841E42 /* LoginViewController.xib */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -383,6 +389,7 @@
 				0AEC5C1A21F54F71006CEE45 /* Frameworks */,
 				0AEC5C1B21F54F71006CEE45 /* Resources */,
 				D385D505640FEBBFBA40322B /* [CP] Embed Pods Frameworks */,
+				4F9B715E2220E8F40066D11D /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -455,6 +462,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		4F9B715E2220E8F40066D11D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# This will show an alert (not an error) for a line containing a TODO or a FIXME\nTAGS=\"TODO:|FIXME:\"\necho \"searching ${SRCROOT} for ${TAGS}\"\nfind \"${SRCROOT}\" \\( -name \"*.swift\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($TAGS).*\\$\" | perl -p -e \"s/($TAGS)/ warning: \\$1/\"\n";
+		};
 		D385D505640FEBBFBA40322B /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -549,12 +573,14 @@
 				0A45DDB6221BB53A00AE5303 /* TeamAnalysisList.swift in Sources */,
 				0A44443422165DF600F8D987 /* FirebaseGrab.swift in Sources */,
 				0A45DDB3221BB33C00AE5303 /* AnalysisViewController.swift in Sources */,
+				4F9B715D2220E78F0066D11D /* Functions.swift in Sources */,
 				0AEC5C2321F54F71006CEE45 /* TeamsViewController.swift in Sources */,
 				4F9FC9752220BFA900841E42 /* IntroViewController.swift in Sources */,
 				4F9FC9742220BFA900841E42 /* LoadingViewController.swift in Sources */,
 				0A8AA2F8220008BA00E24F01 /* InitScoutViewController.swift in Sources */,
 				0A033C0722139DE700C27068 /* CompetitionTableViewController.swift in Sources */,
 				4F9FC9772220BFA900841E42 /* SignupViewController.swift in Sources */,
+				4F9B71602220E9820066D11D /* Reachability.swift in Sources */,
 				0A033BF122126F3500C27068 /* Competition.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
