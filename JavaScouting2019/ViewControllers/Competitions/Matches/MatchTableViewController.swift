@@ -65,6 +65,12 @@ class MatchTableViewController: UITableViewController {
 		cell.textLabel?.text = teamText
 		return cell
 	}
+	override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+		if (editingStyle == .delete) {
+			db.document(matchPath + "\(matches[indexPath.row].matchNum)").delete()
+			refresh()
+		}
+	}
 	//MARK: - Navigation
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		let identifier = segue.identifier
