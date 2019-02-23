@@ -66,6 +66,12 @@ class TeamsViewController: UITableViewController {
 		cell.detailTextLabel?.text = "\(team.teamNum)"
         return cell
     }
+	override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+		if (editingStyle == .delete) {
+			db.document(path + "\(teams[indexPath.row].teamNum)").delete()
+			refresh()
+		}
+	}
 	//MARK: - Navigation
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		let identifier = segue.identifier

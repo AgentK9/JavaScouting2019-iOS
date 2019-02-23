@@ -83,6 +83,12 @@ class TeamDetailViewController: UIViewController, UITableViewDelegate, UITableVi
 		}
 		return cell
 	}
+	func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+		if (editingStyle == .delete) {
+			db.document(path + "\(selectedTeam!.scouting[indexPath.row].matchID)").delete()
+			refresh()
+		}
+	}
 	//MARK: - Storyboard Functions
 	@IBAction func refreshButton(_ sender: Any) {
 		refresh()

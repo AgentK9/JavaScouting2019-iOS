@@ -49,12 +49,10 @@ class CompetitionTableViewController: UITableViewController {
 	}
 	
     // MARK: - Table view data source
-
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		let count = competitions.count
 		return count
     }
-	
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CompetitionCell", for: indexPath)
 		let comp = competitions[indexPath.row]
@@ -63,6 +61,12 @@ class CompetitionTableViewController: UITableViewController {
 
         return cell
     }
+	override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+		if (editingStyle == .delete) {
+			db.document(path + competitions[indexPath.row].compID!).delete()
+			refresh()
+		}
+	}
 	
 	
     // MARK: - Navigation
