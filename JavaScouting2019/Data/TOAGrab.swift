@@ -13,7 +13,7 @@ class TOAGrab {
 	func grabTeam(_ number: Int, completionHandler: @escaping (Data?, Error?) -> Void) -> ScoutingTeam
 	{
 		do {
-			var toTeam: ScoutingTeam! = ScoutingTeam(teamNum: -1, teamName: nil, record: nil, bestScore: nil, latestScore: nil, path: "", scouting: [ScoutingData](), compRecord: [0, 0, 0], QP: nil, TBP: nil)
+			var toTeam: ScoutingTeam! = ScoutingTeam(teamNum: -1, teamName: nil, record: nil, bestScore: nil, latestScore: nil, path: "", scouting: [ScoutingData](), compRecord: [0, 0, 0], QP: nil, TBP: nil, AIRank: nil)
 			let url = URL(string: "https://theorangealliance.org/api/team/\(number)")!
 			var request = URLRequest(url: url)
 			request.setValue("application/json", forHTTPHeaderField: "Content-Type")
