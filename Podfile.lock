@@ -625,6 +625,7 @@ PODS:
     - nanopb/encode (= 0.3.901)
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
+  - paper-onboarding (5.0.0)
   - Protobuf (3.6.1)
   - TensorFlowLite (1.12.0)
 
@@ -634,6 +635,7 @@ DEPENDENCIES:
   - Firebase/Firestore
   - Firebase/MLModelInterpreter
   - MaterialComponents
+  - paper-onboarding
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -660,6 +662,7 @@ SPEC REPOS:
     - MotionInterchange
     - MotionTransitioning
     - nanopb
+    - paper-onboarding
     - Protobuf
     - TensorFlowLite
 
@@ -687,9 +690,10 @@ SPEC CHECKSUMS:
   MotionInterchange: ead0e3ae1f3a5fb539e289debbc7ae036160a10d
   MotionTransitioning: 23d25edc2f4606efb922403cbac6d81af37aa33a
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
+  paper-onboarding: a2e3a710fd27ac0b5635ec5490660e7ec09289b5
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
   TensorFlowLite: e81aef029750aa46b42ad16553fa4cddd81498cc
 
-PODFILE CHECKSUM: e48e2b8da0f23613b48e0ed6b3b68040dfbf2ded
+PODFILE CHECKSUM: aa0f6bf4686fd3161034eac69dd849da51fe3e1b
 
 COCOAPODS: 1.5.3
